@@ -1767,6 +1767,218 @@ a.producto-card-link {
     color: var(--color-bg);
 }
 
+.btn-instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: #fff;
+    border: none;
+}
+
+.btn-instagram:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.footer-redes {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.footer-red-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    color: var(--color-text);
+    transition: all var(--transition);
+}
+
+.footer-red-social:hover {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    border-color: transparent;
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+.footer-red-social svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Buscador */
+.nav-buscador {
+    margin-left: 20px;
+}
+
+.btn-buscar {
+    background: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all var(--transition);
+}
+
+.btn-buscar:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+}
+
+.modal-buscador {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 15vh;
+    z-index: 2000;
+    backdrop-filter: blur(5px);
+}
+
+.modal-buscador.activo {
+    display: flex;
+}
+
+.buscador-contenido {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    width: 90%;
+    max-width: 600px;
+    padding: 30px;
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+}
+
+.buscador-cerrar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: var(--color-text-secondary);
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color var(--transition);
+}
+
+.buscador-cerrar:hover {
+    color: var(--color-text);
+}
+
+.buscador-contenido h3 {
+    margin-bottom: 20px;
+    color: var(--color-text);
+}
+
+.buscador-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+}
+
+.buscador-input-wrapper:focus-within {
+    border-color: var(--color-accent);
+}
+
+.buscador-input-wrapper svg {
+    color: var(--color-text-secondary);
+    flex-shrink: 0;
+}
+
+#buscador-input {
+    flex: 1;
+    background: none;
+    border: none;
+    color: var(--color-text);
+    font-size: 1rem;
+    outline: none;
+}
+
+#buscador-input::placeholder {
+    color: var(--color-text-secondary);
+}
+
+.buscador-resultados {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.buscador-hint,
+.buscador-sin-resultados {
+    color: var(--color-text-secondary);
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+}
+
+.buscador-resultado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all var(--transition);
+    border: 1px solid transparent;
+}
+
+.buscador-resultado:hover {
+    background: var(--color-bg-secondary);
+    border-color: var(--color-border);
+}
+
+.buscador-resultado-nombre {
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+.buscador-resultado-categoria {
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+    background: var(--color-bg-tertiary);
+    padding: 4px 10px;
+    border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+    .nav-buscador {
+        margin-left: 10px;
+    }
+    
+    .modal-buscador {
+        padding-top: 10vh;
+    }
+    
+    .buscador-contenido {
+        width: 95%;
+        padding: 20px;
+    }
+    
+    .buscador-resultado {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+}
+
 /* Características con barras de progreso */
 .caracteristicas-barras {
     margin-top: 15px;
