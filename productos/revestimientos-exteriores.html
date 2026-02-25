@@ -192,6 +192,56 @@
                     <div class="info-adicional">
                         <p><strong>¿Buscas tarimas para suelos exteriores?</strong> Visita nuestra sección de <a href="suelos-exteriores.html">Suelos Exteriores</a> donde encontrarás tarimas GALLART-TEC para terrazas y piscinas.</p>
                     </div>
+
+                    <!-- Calculadora GALLART-TEC -->
+                    <div class="calculadora-tarima">
+                        <h3>Calculadora de Material</h3>
+                        <p class="calculadora-intro">Introduce los m² que necesitas cubrir y te decimos cuántas tablas necesitas.</p>
+                        
+                        <div class="calculadora-form">
+                            <div class="calculadora-grupo">
+                                <label for="calc-perfil">Perfil GALLART-TEC</label>
+                                <select id="calc-perfil">
+                                    <option value="" disabled selected>Selecciona un perfil</option>
+                                    <optgroup label="Revestimientos">
+                                        <option value="uh61" data-m2tabla="0.504">UH61 Castellation (2800 × 180 mm útil)</option>
+                                        <option value="uh122" data-m2tabla="0.448">UH122 (2800 × 160 mm útil)</option>
+                                        <option value="uh67" data-m2tabla="0.286">UH67 Lama Hueca (2200 × 130 mm útil)</option>
+                                    </optgroup>
+                                    <optgroup label="Listones">
+                                        <option value="uh17" data-m2tabla="0.154">UH17 Listón (2800 × 55 mm útil)</option>
+                                        <option value="tapeta15" data-m2tabla="0.275">Tapeta 15mm (2200 × 125 mm útil)</option>
+                                    </optgroup>
+                                    <optgroup label="Viguetas">
+                                        <option value="uh25" data-m2tabla="0.28">UH25 Vigueta (2800 × 100 mm)</option>
+                                        <option value="uh26" data-m2tabla="0.336">UH26 Vigueta (2800 × 120 mm)</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                            
+                            <div class="calculadora-grupo">
+                                <label for="calc-m2">Metros cuadrados a cubrir</label>
+                                <input type="number" id="calc-m2" placeholder="Ej: 15" min="0.1" step="0.1">
+                            </div>
+                            
+                            <button id="calc-calcular" class="btn-calcular">Calcular tablas</button>
+                        </div>
+                        
+                        <div id="calc-resultado" class="calculadora-resultado" style="display: none;">
+                            <h4>Resultado</h4>
+                            <div class="resultado-grid resultado-grid-simple">
+                                <div class="resultado-item resultado-item-principal">
+                                    <span class="resultado-numero" id="res-tablas">0</span>
+                                    <span class="resultado-texto">tablas necesarias</span>
+                                </div>
+                            </div>
+                            <div class="resultado-perfil">
+                                <strong>Perfil:</strong> <span id="res-perfil-nombre">-</span><br>
+                                <small>Cada tabla cubre <span id="res-m2tabla">-</span> m²</small>
+                            </div>
+                            <p class="resultado-nota">* Cálculo exacto sin desperdicio. Recomendamos añadir un 10% extra para cortes y empalmes.</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="producto-linea">
@@ -967,6 +1017,36 @@
             resultadoAsesor.style.display = 'none';
             preguntasAsesor.forEach(p => p.classList.remove('activa'));
             document.querySelector('.asesor-pregunta[data-paso="1"]').classList.add('activa');
+        });
+
+        // Calculadora GALLART-TEC
+        const calcPerfil = document.getElementById('calc-perfil');
+        const calcM2 = document.getElementById('calc-m2');
+        const calcBtn = document.getElementById('calc-calcular');
+        const calcResultado = document.getElementById('calc-resultado');
+
+        calcBtn.addEventListener('click', () => {
+            const perfilOption = calcPerfil.options[calcPerfil.selectedIndex];
+            const m2 = parseFloat(calcM2.value);
+
+            if (!perfilOption.value || isNaN(m2) || m2 <= 0) {
+                alert('Por favor, selecciona un perfil e introduce los metros cuadrados.');
+                return;
+            }
+
+            const m2tabla = parseFloat(perfilOption.dataset.m2tabla);
+            const perfilNombre = perfilOption.text;
+
+            // Cálculo simple: m² / m² por tabla, redondeado hacia arriba
+            const tablasNecesarias = Math.ceil(m2 / m2tabla);
+
+            // Mostrar resultados
+            document.getElementById('res-tablas').textContent = tablasNecesarias;
+            document.getElementById('res-perfil-nombre').textContent = perfilNombre;
+            document.getElementById('res-m2tabla').textContent = m2tabla.toFixed(2);
+
+            calcResultado.style.display = 'block';
+            calcResultado.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         });
     </script>
 </body>
