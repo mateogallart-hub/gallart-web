@@ -551,6 +551,31 @@ a.producto-card-link {
     margin-bottom: 24px;
 }
 
+.exposicion-card address a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 12px 16px;
+    background: var(--color-bg-tertiary);
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    transition: all var(--transition);
+}
+
+.exposicion-card address a::before {
+    content: "📍";
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.exposicion-card address a:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    background: rgba(201, 169, 121, 0.1);
+}
+
 .exposicion-card p {
     margin-bottom: 16px;
     color: var(--color-text-secondary);
@@ -2873,6 +2898,51 @@ a.producto-card-link {
     
     .btn-calcular {
         width: 100%;
+    }
+}
+
+/* ========================================
+   BOTÓN FLOTANTE WHATSAPP
+   ======================================== */
+
+.whatsapp-flotante {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    z-index: 9999;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-flotante:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
+}
+
+.whatsapp-flotante svg {
+    width: 32px;
+    height: 32px;
+}
+
+@media (max-width: 768px) {
+    .whatsapp-flotante {
+        bottom: 20px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+    }
+    
+    .whatsapp-flotante svg {
+        width: 28px;
+        height: 28px;
     }
 }
 
