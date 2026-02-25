@@ -472,10 +472,24 @@ a.producto-card-link {
     line-height: 1.8;
 }
 
+.empresa-imagen {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.empresa-imagen img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 .empresa-stats {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
     gap: 32px;
+    margin-top: 50px;
 }
 
 .stat {
@@ -543,12 +557,53 @@ a.producto-card-link {
     line-height: 1.7;
 }
 
+.exposicion-horario {
+    margin-top: 20px;
+    padding: 15px;
+    background: var(--color-bg-tertiary);
+    border-radius: 8px;
+    border-left: 3px solid var(--color-accent);
+}
+
+.exposicion-horario p {
+    margin: 4px 0;
+    font-size: 0.95rem;
+}
+
+.exposicion-horario p:first-child {
+    margin-bottom: 8px;
+}
+
 .exposicion-contacto a {
     color: var(--color-accent);
 }
 
 .exposicion-contacto a:hover {
     text-decoration: underline;
+}
+
+/* Próximamente */
+.proximamente-contenido {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.proximamente-icono {
+    margin-bottom: 30px;
+    color: var(--color-accent);
+}
+
+.proximamente-contenido h2 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.proximamente-contenido > p {
+    color: var(--color-text-secondary);
+    max-width: 500px;
+    margin: 0 auto;
+    font-size: 1.1rem;
 }
 
 /* Contacto Section */
@@ -1495,10 +1550,13 @@ a.producto-card-link {
         text-align: center;
     }
     
+    .empresa-imagen {
+        margin-top: 30px;
+    }
+    
     .empresa-stats {
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 20px;
     }
     
     .stat {
@@ -2815,5 +2873,184 @@ a.producto-card-link {
     
     .btn-calcular {
         width: 100%;
+    }
+}
+
+/* ========================================
+   PÁGINAS LEGALES
+   ======================================== */
+
+.legal-hero {
+    background: var(--color-bg-secondary);
+    padding: 120px 0 60px;
+    text-align: center;
+}
+
+.legal-hero h1 {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    margin-bottom: 0;
+}
+
+.legal-content {
+    padding: 60px 0 80px;
+}
+
+.legal-texto {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+.legal-texto h2 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    margin: 40px 0 20px;
+    color: var(--color-accent);
+}
+
+.legal-texto h2:first-of-type {
+    margin-top: 0;
+}
+
+.legal-texto h3 {
+    font-size: 1.1rem;
+    margin: 30px 0 15px;
+}
+
+.legal-texto p {
+    margin-bottom: 15px;
+    color: var(--color-text-secondary);
+}
+
+.legal-texto ul {
+    margin: 15px 0 25px 20px;
+    color: var(--color-text-secondary);
+}
+
+.legal-texto ul li {
+    margin-bottom: 10px;
+}
+
+.legal-texto strong {
+    color: var(--color-text);
+}
+
+.legal-fecha {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-text-muted) !important;
+    font-size: 0.9rem;
+}
+
+.tabla-cookies {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0 30px;
+    font-size: 0.9rem;
+}
+
+.tabla-cookies th,
+.tabla-cookies td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.tabla-cookies th {
+    background: var(--color-bg-secondary);
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.tabla-cookies td {
+    color: var(--color-text-secondary);
+}
+
+.tabla-cookies a {
+    color: var(--color-accent);
+}
+
+/* Footer Legal Links */
+.footer-legal ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-legal ul li {
+    margin-bottom: 8px;
+}
+
+.footer-legal ul li a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.footer-legal ul li a:hover {
+    color: var(--color-accent);
+}
+
+/* ========================================
+   BANNER DE COOKIES
+   ======================================== */
+
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--color-bg-secondary);
+    padding: 20px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 10000;
+    display: none;
+}
+
+.cookie-banner.show {
+    display: block;
+}
+
+.cookie-banner .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.cookie-banner p {
+    flex: 1;
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    min-width: 250px;
+}
+
+.cookie-banner p a {
+    color: var(--color-accent);
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.cookie-buttons .btn {
+    padding: 10px 25px;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+    .cookie-banner .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .cookie-buttons {
+        width: 100%;
+        justify-content: center;
     }
 }

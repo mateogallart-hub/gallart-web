@@ -111,4 +111,31 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Cookie Banner
+    const cookieBanner = document.getElementById('cookie-banner');
+    const cookieAceptar = document.getElementById('cookie-aceptar');
+    const cookieRechazar = document.getElementById('cookie-rechazar');
+
+    if (cookieBanner) {
+        const cookiesAccepted = localStorage.getItem('cookies_accepted');
+        
+        if (cookiesAccepted === null) {
+            cookieBanner.classList.add('show');
+        }
+
+        if (cookieAceptar) {
+            cookieAceptar.addEventListener('click', () => {
+                localStorage.setItem('cookies_accepted', 'true');
+                cookieBanner.classList.remove('show');
+            });
+        }
+
+        if (cookieRechazar) {
+            cookieRechazar.addEventListener('click', () => {
+                localStorage.setItem('cookies_accepted', 'false');
+                cookieBanner.classList.remove('show');
+            });
+        }
+    }
 });
