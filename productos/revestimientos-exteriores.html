@@ -72,7 +72,7 @@
                     <div class="modelos-section">
                         <h3>Perfiles de Revestimiento</h3>
                         
-                        <div class="coleccion-suelo con-imagen" data-producto="uh61">
+                        <div class="coleccion-suelo con-imagen producto-clicable" data-producto="uh61" data-nombre="UH61 Castellation" data-ref="GALLART-TEC" data-imagenes="../assets/gallart-tec-uh61-teak.png,../assets/uh61-proyecto-1.png,../assets/uh61-proyecto-2.png,../assets/uh61-proyecto-3.png,../assets/uh61-proyecto-4.png,../assets/uh61-proyecto-5.png,../assets/uh61-proyecto-6.png,../assets/uh61-proyecto-7.png,../assets/uh61-proyecto-8.png,../assets/uh61-proyecto-9.png,../assets/uh61-proyecto-10.png,../assets/uh61-proyecto-11.png,../assets/uh61-proyecto-12.png,../assets/uh61-proyecto-13.png,../assets/uh61-proyecto-14.png,../assets/uh61-proyecto-15.png,../assets/uh61-proyecto-16.png,../assets/uh61-proyecto-17.png,../assets/uh61-proyecto-18.png,../assets/uh61-proyecto-19.png,../assets/uh61-proyecto-20.png,../assets/uh61-proyecto-21.png,../assets/uh61-proyecto-22.png,../assets/uh61-proyecto-23.png,../assets/uh61-proyecto-24.png,../assets/uh61-proyecto-25.png,../assets/uh61-proyecto-26.png,../assets/uh61-proyecto-27.png,../assets/uh61-proyecto-28.png">
                             <div class="producto-imagen">
                                 <img src="../assets/gallart-tec-uh61-teak.png" alt="UH61 Castellation GALLART-TEC">
                             </div>
@@ -87,6 +87,7 @@
                                     <span class="color-tag" data-color="ebony">Ebony</span>
                                 </div>
                                 <p class="modelo-descripcion">Diseño almenado con efecto visual moderno y distintivo. Ideal para fachadas, portales residenciales y locales comerciales. Incluye accesorios de remate y esquinero a juego.</p>
+                                <p class="ver-galeria-link">Ver galería de proyectos →</p>
                             </div>
                         </div>
 
@@ -125,7 +126,7 @@
                         <h3>Listones y Viguetas</h3>
                         <p class="section-note">Para pérgolas, celosías y estructuras de fachada</p>
                         
-                        <div class="coleccion-suelo con-imagen" data-producto="uh17">
+                        <div class="coleccion-suelo con-imagen producto-clicable" data-producto="uh17" data-nombre="UH17 Listón" data-ref="GALLART-TEC" data-imagenes="../assets/gallart-tec-uh17-teak.png,../assets/gallart-cartel-lugones.png">
                             <div class="producto-imagen">
                                 <img src="../assets/gallart-tec-uh17-teak.png" alt="UH17 Listón GALLART-TEC">
                             </div>
@@ -139,6 +140,7 @@
                                     <span class="color-tag" data-color="ebony">Ebony</span>
                                 </div>
                                 <p class="modelo-descripcion">Listón estructural para pérgolas, vallados y elementos decorativos.</p>
+                                <p class="ver-galeria-link">Ver galería de proyectos →</p>
                             </div>
                         </div>
 
@@ -728,6 +730,16 @@
         </div>
     </footer>
 
+    <!-- Modal de galería productos -->
+    <div id="modal-producto" class="modal-galeria">
+        <div class="modal-galeria-contenido">
+            <button class="modal-cerrar">&times;</button>
+            <h3 id="modal-producto-titulo">Nombre del producto</h3>
+            <p id="modal-producto-ref" class="modal-ref"></p>
+            <div id="modal-producto-imagenes" class="modal-imagenes-grid"></div>
+        </div>
+    </div>
+
     <!-- Modal de galería Zenwood -->
     <div id="modal-zenwood" class="modal-galeria">
         <div class="modal-galeria-contenido">
@@ -759,6 +771,55 @@
 
     <script src="../script.js"></script>
     <script>
+        // Modal productos con galería
+        const modalProducto = document.getElementById('modal-producto');
+        const modalProductoTitulo = document.getElementById('modal-producto-titulo');
+        const modalProductoRef = document.getElementById('modal-producto-ref');
+        const modalProductoImagenes = document.getElementById('modal-producto-imagenes');
+        const modalProductoCerrar = modalProducto.querySelector('.modal-cerrar');
+
+        document.querySelectorAll('.producto-clicable').forEach(card => {
+            card.addEventListener('click', (e) => {
+                // No abrir galería si se clica en un color-tag
+                if (e.target.classList.contains('color-tag')) return;
+                
+                const nombre = card.dataset.nombre;
+                const ref = card.dataset.ref;
+                const imagenesStr = card.dataset.imagenes;
+                
+                if (!imagenesStr) return;
+                
+                const imagenes = imagenesStr.split(',');
+                
+                modalProductoTitulo.textContent = nombre;
+                modalProductoRef.textContent = ref;
+                
+                modalProductoImagenes.innerHTML = '';
+                imagenes.forEach(src => {
+                    const img = document.createElement('img');
+                    img.src = src.trim();
+                    img.alt = nombre;
+                    img.addEventListener('click', () => {
+                        modalAmpliadaImg.src = img.src;
+                        modalAmpliadaImg.alt = nombre;
+                        modalAmpliada.classList.add('activo');
+                    });
+                    modalProductoImagenes.appendChild(img);
+                });
+                
+                modalProducto.classList.add('activo');
+            });
+        });
+
+        modalProductoCerrar.addEventListener('click', () => {
+            modalProducto.classList.remove('activo');
+        });
+        modalProducto.addEventListener('click', (e) => {
+            if (e.target === modalProducto) {
+                modalProducto.classList.remove('activo');
+            }
+        });
+
         // Galería Zenwood
         const modalZenwood = document.getElementById('modal-zenwood');
         const modalZenwoodCerrar = modalZenwood.querySelector('.modal-cerrar');
@@ -808,6 +869,8 @@
                     modalAmpliada.classList.remove('activo');
                 } else if (modalZenwood.classList.contains('activo')) {
                     modalZenwood.classList.remove('activo');
+                } else if (modalProducto.classList.contains('activo')) {
+                    modalProducto.classList.remove('activo');
                 }
             }
         });
