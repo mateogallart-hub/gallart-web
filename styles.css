@@ -317,8 +317,8 @@ img {
     .hero-bg-slideshow::after {
         background: linear-gradient(
             to bottom,
-            rgba(10, 10, 10, 0.5) 0%,
-            rgba(10, 10, 10, 0.85) 100%
+            rgba(10, 10, 10, 0.65) 0%,
+            rgba(10, 10, 10, 0.92) 100%
         );
     }
     
@@ -326,23 +326,29 @@ img {
         margin-left: auto;
         margin-right: auto;
         text-align: center;
+        background: rgba(10, 10, 10, 0.7);
+        padding: 28px 20px;
+        border-radius: 12px;
     }
     
     .hero-buttons {
         justify-content: center;
     }
     
-    /* Mejor legibilidad del texto sobre la imagen en móvil */
-    .hero h1,
-    .hero-subtitle,
-    .hero-description {
-        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5);
+    /* Máxima legibilidad del texto sobre la imagen en móvil */
+    .hero h1 {
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 1), 0 0 30px rgba(0, 0, 0, 0.8);
+        color: #ffffff;
     }
     
-    .hero-content {
-        background: rgba(10, 10, 10, 0.4);
-        padding: 24px;
-        border-radius: 8px;
+    .hero-subtitle {
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 1), 0 0 20px rgba(0, 0, 0, 0.7);
+        color: var(--color-accent);
+    }
+    
+    .hero-description {
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 1), 0 0 16px rgba(0, 0, 0, 0.6);
+        color: #e8e8e8;
     }
 }
 
