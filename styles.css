@@ -476,13 +476,13 @@ a.producto-card-link {
 /* Profesionales Section */
 .profesionales {
     padding: 100px 0;
-    background: var(--color-bg);
+    background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-secondary) 50%, var(--color-bg) 100%);
     border-top: 1px solid var(--color-border);
     border-bottom: 1px solid var(--color-border);
 }
 
 .profesionales-content {
-    max-width: 700px;
+    max-width: 900px;
     margin: 0 auto;
     text-align: center;
 }
@@ -493,35 +493,78 @@ a.producto-card-link {
     margin-bottom: 20px;
 }
 
-.profesionales > .container > .profesionales-content > p {
+.profesionales-intro {
     color: var(--color-text-secondary);
     font-size: 1.1rem;
-    margin-bottom: 32px;
+    margin-bottom: 48px;
+    line-height: 1.7;
 }
 
-.profesionales-lista {
-    list-style: none;
+.profesionales-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
     text-align: left;
 }
 
-.profesionales-lista li {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 16px 20px;
-    background: var(--color-bg-secondary);
-    border: 1px solid var(--color-border);
-    border-radius: 6px;
-    font-size: 0.95rem;
+@media (max-width: 640px) {
+    .profesionales-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
-.profesionales-lista li::before {
-    content: '✓';
+.profesionales-card {
+    padding: 28px 24px;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.profesionales-card:hover {
+    border-color: rgba(201, 169, 98, 0.4);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+.profesionales-icono {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(201, 169, 98, 0.12);
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.profesionales-icono svg {
+    width: 22px;
+    height: 22px;
     color: var(--color-accent);
-    font-weight: bold;
+}
+
+.profesionales-card h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--color-text);
+}
+
+.profesionales-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.profesionales-cta {
+    display: inline-block;
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 6px;
 }
 
 /* Empresa Section */
