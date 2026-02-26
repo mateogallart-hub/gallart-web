@@ -42,11 +42,88 @@
             </div>
         </section>
 
+        <section class="productos" id="cubiertas-nav">
+            <div class="container">
+                <h2 class="productos-titulo">Soluciones para cubiertas</h2>
+                <div class="productos-grid tableros-tabs">
+                    <button type="button" class="producto-card tablero-tab activo" data-seccion="viga-laminada" aria-pressed="true">
+                        <div class="producto-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M4 20 L4 4 L20 4 L20 20"/>
+                                <line x1="4" y1="12" x2="20" y2="12"/>
+                                <line x1="12" y1="4" x2="12" y2="20"/>
+                            </svg>
+                        </div>
+                        <h3>Viga Laminada</h3>
+                        <p>Vigas de abeto laminado GL24h. 17 secciones en stock. Corte a medida.</p>
+                    </button>
+
+                    <button type="button" class="producto-card tablero-tab" data-seccion="panel-sandwich" aria-pressed="false">
+                        <div class="producto-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="3" width="18" height="18" rx="1"/>
+                                <line x1="3" y1="9" x2="21" y2="9"/>
+                                <line x1="3" y1="15" x2="21" y2="15"/>
+                                <line x1="9" y1="3" x2="9" y2="21"/>
+                                <line x1="15" y1="3" x2="15" y2="21"/>
+                            </svg>
+                        </div>
+                        <h3>Panel Sandwich / Autoportante</h3>
+                        <p>Paneles aislados para cubiertas y cerramientos. Soluciones completas.</p>
+                    </button>
+
+                    <button type="button" class="producto-card tablero-tab" data-seccion="tabla-machihembrada" aria-pressed="false">
+                        <div class="producto-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M4 20 L4 4 L20 4 L20 20"/>
+                                <line x1="4" y1="8" x2="20" y2="8"/>
+                                <line x1="4" y1="12" x2="20" y2="12"/>
+                                <line x1="4" y1="16" x2="20" y2="16"/>
+                            </svg>
+                        </div>
+                        <h3>Tabla Machihembrada</h3>
+                        <p>Tablas de madera con sistema macho-hembra para cubiertas y forjados.</p>
+                    </button>
+
+                    <button type="button" class="producto-card tablero-tab" data-seccion="mantas-rastrel" aria-pressed="false">
+                        <div class="producto-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="2" y="6" width="20" height="12" rx="1"/>
+                                <line x1="2" y1="10" x2="22" y2="10"/>
+                                <line x1="2" y1="14" x2="22" y2="14"/>
+                                <line x1="8" y1="6" x2="8" y2="18"/>
+                                <line x1="16" y1="6" x2="16" y2="18"/>
+                            </svg>
+                        </div>
+                        <h3>Mantas Aislantes / Rastrel Tratado</h3>
+                        <p>Aislamiento térmico y acústico. Rastrel tratado para cubiertas.</p>
+                    </button>
+
+                    <button type="button" class="producto-card tablero-tab" data-seccion="osb" aria-pressed="false">
+                        <div class="producto-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="3" width="18" height="18" rx="1"/>
+                                <line x1="3" y1="9" x2="21" y2="9"/>
+                                <line x1="3" y1="15" x2="21" y2="15"/>
+                                <line x1="9" y1="3" x2="9" y2="21"/>
+                                <line x1="15" y1="3" x2="15" y2="21"/>
+                            </svg>
+                        </div>
+                        <h3>OSB</h3>
+                        <p>OSB normal y machihembrado para cubiertas y estructuras.</p>
+                    </button>
+                </div>
+            </div>
+        </section>
+
         <section class="marca-info">
             <div class="container">
-                
-                <div class="producto-linea">
-                    <p class="linea-intro">Soluciones completas para la construcción y rehabilitación de cubiertas. Desde la estructura hasta el acabado final.</p>
+                <div class="tableros-secciones">
+                <!-- VIGA LAMINADA -->
+                <div class="tableros-seccion activa" data-seccion="viga-laminada">
+                <div class="producto-linea" id="viga-laminada">
+                    <h2>Viga Laminada</h2>
+                    <p class="linea-intro">Soluciones completas para la construcción y rehabilitación de cubiertas. Vigas de abeto laminado GL24h con 17 secciones en stock.</p>
                     
                     <div class="modelos-section">
                         <h3>Vigas de Abeto Laminado</h3>
@@ -191,6 +268,56 @@
                         </p>
                     </div>
                 </div>
+                </div><!-- fin tableros-seccion viga-laminada -->
+
+                <!-- PANEL SANDWICH / AUTOPORTANTE -->
+                <div class="tableros-seccion" data-seccion="panel-sandwich">
+                <div class="producto-linea" id="panel-sandwich">
+                    <h2>Panel Sandwich / Autoportante</h2>
+                    <p class="linea-intro">Paneles aislados para cubiertas y cerramientos. Soluciones completas de alta eficiencia energética.</p>
+                    <div class="modelos-section">
+                        <h3>Próximamente</h3>
+                        <p style="text-align: center; color: var(--color-text-muted); padding: 40px 0;">Estamos preparando el catálogo de paneles sandwich y autoportantes. Contacta con nosotros para información sobre modelos y medidas disponibles.</p>
+                    </div>
+                </div>
+                </div><!-- fin tableros-seccion panel-sandwich -->
+
+                <!-- TABLA MACHIHEMBRADA -->
+                <div class="tableros-seccion" data-seccion="tabla-machihembrada">
+                <div class="producto-linea" id="tabla-machihembrada">
+                    <h2>Tabla Machihembrada</h2>
+                    <p class="linea-intro">Tablas de madera con sistema macho-hembra para cubiertas, forjados y estructuras de madera.</p>
+                    <div class="modelos-section">
+                        <h3>Próximamente</h3>
+                        <p style="text-align: center; color: var(--color-text-muted); padding: 40px 0;">Estamos preparando el catálogo de tablas machihembradas. Contacta con nosotros para información sobre medidas y especies disponibles.</p>
+                    </div>
+                </div>
+                </div><!-- fin tableros-seccion tabla-machihembrada -->
+
+                <!-- MANTAS AISLANTES / RASTREL TRATADO -->
+                <div class="tableros-seccion" data-seccion="mantas-rastrel">
+                <div class="producto-linea" id="mantas-rastrel">
+                    <h2>Mantas Aislantes / Rastrel Tratado</h2>
+                    <p class="linea-intro">Aislamiento térmico y acústico para cubiertas. Rastrel tratado en autoclave para máxima durabilidad.</p>
+                    <div class="modelos-section">
+                        <h3>Próximamente</h3>
+                        <p style="text-align: center; color: var(--color-text-muted); padding: 40px 0;">Estamos preparando el catálogo de mantas aislantes y rastrel tratado. Contacta con nosotros para información sobre modelos disponibles.</p>
+                    </div>
+                </div>
+                </div><!-- fin tableros-seccion mantas-rastrel -->
+
+                <!-- OSB -->
+                <div class="tableros-seccion" data-seccion="osb">
+                <div class="producto-linea" id="osb">
+                    <h2>OSB (Normal y Machihembrado)</h2>
+                    <p class="linea-intro">Tableros OSB para cubiertas y estructuras. Versiones normal y machihembrada para distintos usos.</p>
+                    <div class="modelos-section">
+                        <h3>Próximamente</h3>
+                        <p style="text-align: center; color: var(--color-text-muted); padding: 40px 0;">Estamos preparando el catálogo de OSB. Contacta con nosotros para información sobre grosores, medidas y disponibilidad.</p>
+                    </div>
+                </div>
+                </div><!-- fin tableros-seccion osb -->
+                </div><!-- fin tableros-secciones -->
 
                 <div class="marca-cta">
                     <p><strong>¿Necesitas materiales para cubiertas?</strong><br>Contacta con nosotros para asesoramiento y presupuesto sin compromiso.</p>
@@ -262,5 +389,45 @@
     </div>
 
     <script src="../script.js"></script>
+    <script>
+        function initCubiertasTabs() {
+            const tablerosGrid = document.querySelector('#cubiertas-nav .tableros-tabs');
+            const tableroSecciones = document.querySelectorAll('.tableros-secciones .tableros-seccion');
+
+            if (!tablerosGrid || !tableroSecciones.length) return;
+
+            tablerosGrid.addEventListener('click', function(e) {
+                const tab = e.target.closest('.tablero-tab');
+                if (!tab) return;
+
+                const seccionId = tab.dataset.seccion;
+                if (!seccionId) return;
+
+                tablerosGrid.querySelectorAll('.tablero-tab').forEach(t => {
+                    t.classList.remove('activo');
+                    t.setAttribute('aria-pressed', 'false');
+                });
+                tab.classList.add('activo');
+                tab.setAttribute('aria-pressed', 'true');
+
+                tableroSecciones.forEach(sec => {
+                    if (sec.dataset.seccion === seccionId) {
+                        sec.classList.add('activa');
+                        sec.style.animation = 'none';
+                        sec.offsetHeight;
+                        sec.style.animation = 'tableroAbrir 0.45s ease-out forwards';
+                        sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    } else {
+                        sec.classList.remove('activa');
+                    }
+                });
+            });
+        }
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initCubiertasTabs);
+        } else {
+            initCubiertasTabs();
+        }
+    </script>
 </body>
 </html>
