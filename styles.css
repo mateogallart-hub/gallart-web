@@ -399,6 +399,22 @@ a.producto-card-link {
     opacity: 0.5;
 }
 
+/* En móvil: "Ver más" debajo del texto para evitar solapamiento */
+@media (max-width: 640px) {
+    .tablero-tab {
+        padding-bottom: 16px;
+    }
+    
+    .tablero-tab::after {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        display: block;
+        text-align: right;
+        margin-top: 12px;
+    }
+}
+
 .tableros-secciones {
     display: grid;
     margin-top: 40px;
