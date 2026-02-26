@@ -42,10 +42,45 @@
             </div>
         </section>
 
+        <section class="productos" id="revestimientos-exteriores-nav">
+            <div class="container">
+                <h2 class="productos-titulo">Soluciones para fachadas y exteriores</h2>
+                <div class="productos-grid tableros-tabs">
+                    <button type="button" class="producto-card tablero-tab activo" data-seccion="gallart-tec" aria-pressed="true">
+                        <div class="producto-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M3 21 L3 6 L12 2 L21 6 L21 21"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                                <line x1="3" y1="14" x2="21" y2="14"/>
+                                <line x1="3" y1="18" x2="21" y2="18"/>
+                            </svg>
+                        </div>
+                        <h3>GALLART-TEC</h3>
+                        <p>Revestimientos y listones con UltraShield®. 25 años de garantía. Cero mantenimiento.</p>
+                    </button>
+
+                    <button type="button" class="producto-card tablero-tab" data-seccion="zenwood" aria-pressed="false">
+                        <div class="producto-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M4 20 L4 4 L20 4 L20 20"/>
+                                <line x1="4" y1="8" x2="20" y2="8"/>
+                                <line x1="4" y1="12" x2="20" y2="12"/>
+                                <line x1="4" y1="16" x2="20" y2="16"/>
+                            </svg>
+                        </div>
+                        <h3>Zenwood</h3>
+                        <p>Madera carbonizada Yakisugi. Belleza natural y durabilidad extrema sin químicos.</p>
+                    </button>
+                </div>
+            </div>
+        </section>
+
         <section class="marca-info">
             <div class="container">
-                
-                <div class="producto-linea">
+                <div class="tableros-secciones">
+                <!-- GALLART-TEC -->
+                <div class="tableros-seccion activa" data-seccion="gallart-tec">
+                <div class="producto-linea" id="gallart-tec">
                     <h2>GALLART-TEC <span class="by-ntw">by NTW</span></h2>
                     <p class="linea-intro">Nuestra línea propia de revestimientos de exterior. Tecnología UltraShield® con encapsulado 360° para máxima durabilidad y cero mantenimiento.</p>
                     
@@ -245,8 +280,11 @@
                         </div>
                     </div>
                 </div>
+                </div><!-- fin tableros-seccion gallart-tec -->
 
-                <div class="producto-linea">
+                <!-- ZENWOOD -->
+                <div class="tableros-seccion" data-seccion="zenwood">
+                <div class="producto-linea" id="zenwood">
                     <h2>Zenwood</h2>
                     <p class="linea-intro">Madera carbonizada con la técnica japonesa milenaria Yakisugi (Shou Sugi Ban). Belleza natural y protección sin químicos. <strong>Apto para exterior e interior.</strong></p>
                     
@@ -738,6 +776,8 @@
                         </div>
                     </div>
                 </div>
+                </div><!-- fin tableros-seccion zenwood -->
+                </div><!-- fin tableros-secciones -->
 
                 <div class="marca-cta">
                     <p><strong>¿Necesitas revestimientos exteriores?</strong><br>Contacta con nosotros para asesoramiento, muestras y presupuesto sin compromiso.</p>
@@ -1076,6 +1116,46 @@
             calcResultado.style.display = 'block';
             calcResultado.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         });
+
+        // Tabs de secciones
+        function initRevestimientosExterioresTabs() {
+            const tablerosGrid = document.querySelector('#revestimientos-exteriores-nav .tableros-tabs');
+            const tableroSecciones = document.querySelectorAll('.tableros-secciones .tableros-seccion');
+
+            if (!tablerosGrid || !tableroSecciones.length) return;
+
+            tablerosGrid.addEventListener('click', function(e) {
+                const tab = e.target.closest('.tablero-tab');
+                if (!tab) return;
+
+                const seccionId = tab.dataset.seccion;
+                if (!seccionId) return;
+
+                tablerosGrid.querySelectorAll('.tablero-tab').forEach(t => {
+                    t.classList.remove('activo');
+                    t.setAttribute('aria-pressed', 'false');
+                });
+                tab.classList.add('activo');
+                tab.setAttribute('aria-pressed', 'true');
+
+                tableroSecciones.forEach(sec => {
+                    if (sec.dataset.seccion === seccionId) {
+                        sec.classList.add('activa');
+                        sec.style.animation = 'none';
+                        sec.offsetHeight;
+                        sec.style.animation = 'tableroAbrir 0.45s ease-out forwards';
+                        sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    } else {
+                        sec.classList.remove('activa');
+                    }
+                });
+            });
+        }
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initRevestimientosExterioresTabs);
+        } else {
+            initRevestimientosExterioresTabs();
+        }
     </script>
 </body>
 </html>

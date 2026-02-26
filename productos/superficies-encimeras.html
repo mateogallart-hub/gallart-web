@@ -42,10 +42,45 @@
             </div>
         </section>
 
+        <section class="productos" id="superficies-nav">
+            <div class="container">
+                <h2 class="productos-titulo">Soluciones para encimeras y superficies</h2>
+                <div class="productos-grid tableros-tabs">
+                    <button type="button" class="producto-card tablero-tab activo" data-seccion="arpa-hpl" aria-pressed="true">
+                        <div class="producto-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="2" y="8" width="20" height="4"/>
+                                <rect x="4" y="12" width="4" height="8"/>
+                                <rect x="16" y="12" width="4" height="8"/>
+                            </svg>
+                        </div>
+                        <h3>Arpa HPL</h3>
+                        <p>Superficies HPL efecto mármol, madera y colores lisos. Encimeras, mesas y mobiliario.</p>
+                    </button>
+
+                    <button type="button" class="producto-card tablero-tab" data-seccion="fenix-ntm" aria-pressed="false">
+                        <div class="producto-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                <line x1="3" y1="9" x2="21" y2="9"/>
+                                <line x1="3" y1="15" x2="21" y2="15"/>
+                                <line x1="9" y1="3" x2="9" y2="21"/>
+                                <line x1="15" y1="3" x2="15" y2="21"/>
+                            </svg>
+                        </div>
+                        <h3>Fenix NTM</h3>
+                        <p>Superficie mate nanotech. Tacto sedoso, antihuella y colores exclusivos.</p>
+                    </button>
+                </div>
+            </div>
+        </section>
+
         <section class="marca-info">
             <div class="container">
-                
-                <div class="producto-linea">
+                <div class="tableros-secciones">
+                <!-- ARPA HPL -->
+                <div class="tableros-seccion activa" data-seccion="arpa-hpl">
+                <div class="producto-linea" id="arpa-hpl">
                     <h2>Arpa HPL</h2>
                     <p class="linea-intro">Distribuidor oficial de Arpa Industriale en Asturias. Superficies de alta calidad fabricadas en Italia con tecnología HPL (High Pressure Laminate). Combinan diseño y funcionalidad con propiedades excepcionales.</p>
                     
@@ -179,7 +214,47 @@
                         </div>
                     </div>
 
-                    <div class="modelos-section" style="margin-top: 50px;">
+                    <div class="marca-sostenibilidad" style="margin-top: 40px;">
+                        <h3>Características técnicas</h3>
+                        <div class="sostenibilidad-items">
+                            <div class="sostenibilidad-item">
+                                <div class="sostenibilidad-icono icono-svg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                </div>
+                                <div class="sostenibilidad-texto">
+                                    <h3>Alta Resistencia</h3>
+                                    <p>Resistente a impactos, rayaduras, abrasión y productos químicos. La superficie no porosa no permite que la suciedad se adhiera.</p>
+                                </div>
+                            </div>
+                            <div class="sostenibilidad-item">
+                                <div class="sostenibilidad-icono icono-svg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                                </div>
+                                <div class="sostenibilidad-texto">
+                                    <h3>Resistencia UV</h3>
+                                    <p>No sufre daños por rayos UV y no está sujeto a decoloración. Mantiene su aspecto original durante años.</p>
+                                </div>
+                            </div>
+                            <div class="sostenibilidad-item">
+                                <div class="sostenibilidad-icono icono-svg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+                                </div>
+                                <div class="sostenibilidad-texto">
+                                    <h3>Opciones Especiales</h3>
+                                    <p>Disponible bajo pedido con propiedades antibacterianas (Silverlam) y retardante de fuego (PF) para aplicaciones específicas.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div><!-- fin tableros-seccion arpa-hpl -->
+
+                <!-- FENIX NTM -->
+                <div class="tableros-seccion" data-seccion="fenix-ntm">
+                <div class="producto-linea" id="fenix-ntm">
+                    <h2>Fenix NTM</h2>
+                    <p class="linea-intro">Superficie mate nanotech con tacto sedoso y propiedades antihuella. Tecnología innovadora de Arpa para acabados exclusivos.</p>
+                    <div class="modelos-section">
                         <h3>Fenix NTM - Colores Lisos</h3>
                         <p class="section-note">Superficie mate nanotech con tacto sedoso y propiedades antihuella</p>
                         
@@ -239,40 +314,9 @@
                             Estos son algunos de los modelos que tenemos en stock. Consúltanos para conocer toda la gama disponible o para encargar modelos específicos del catálogo Arpa.
                         </p>
                     </div>
-
-                    <div class="marca-sostenibilidad" style="margin-top: 40px;">
-                        <h3>Características técnicas</h3>
-                        <div class="sostenibilidad-items">
-                            <div class="sostenibilidad-item">
-                                <div class="sostenibilidad-icono icono-svg">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                                </div>
-                                <div class="sostenibilidad-texto">
-                                    <h3>Alta Resistencia</h3>
-                                    <p>Resistente a impactos, rayaduras, abrasión y productos químicos. La superficie no porosa no permite que la suciedad se adhiera.</p>
-                                </div>
-                            </div>
-                            <div class="sostenibilidad-item">
-                                <div class="sostenibilidad-icono icono-svg">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-                                </div>
-                                <div class="sostenibilidad-texto">
-                                    <h3>Resistencia UV</h3>
-                                    <p>No sufre daños por rayos UV y no está sujeto a decoloración. Mantiene su aspecto original durante años.</p>
-                                </div>
-                            </div>
-                            <div class="sostenibilidad-item">
-                                <div class="sostenibilidad-icono icono-svg">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
-                                </div>
-                                <div class="sostenibilidad-texto">
-                                    <h3>Opciones Especiales</h3>
-                                    <p>Disponible bajo pedido con propiedades antibacterianas (Silverlam) y retardante de fuego (PF) para aplicaciones específicas.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
+                </div><!-- fin tableros-seccion fenix-ntm -->
+                </div><!-- fin tableros-secciones -->
 
                 <div class="marca-cta">
                     <p><strong>¿Necesitas superficies HPL?</strong><br>Contacta con nosotros para asesoramiento, muestras y presupuesto sin compromiso.</p>
@@ -434,6 +478,41 @@
                 }
             }
         });
+
+        // Tabs Arpa HPL / Fenix NTM
+        function initSuperficiesTabs() {
+            const tablerosGrid = document.querySelector('#superficies-nav .tableros-tabs');
+            const tableroSecciones = document.querySelectorAll('.tableros-secciones .tableros-seccion');
+            if (!tablerosGrid || !tableroSecciones.length) return;
+            tablerosGrid.addEventListener('click', function(e) {
+                const tab = e.target.closest('.tablero-tab');
+                if (!tab) return;
+                const seccionId = tab.dataset.seccion;
+                if (!seccionId) return;
+                tablerosGrid.querySelectorAll('.tablero-tab').forEach(t => {
+                    t.classList.remove('activo');
+                    t.setAttribute('aria-pressed', 'false');
+                });
+                tab.classList.add('activo');
+                tab.setAttribute('aria-pressed', 'true');
+                tableroSecciones.forEach(sec => {
+                    if (sec.dataset.seccion === seccionId) {
+                        sec.classList.add('activa');
+                        sec.style.animation = 'none';
+                        sec.offsetHeight;
+                        sec.style.animation = 'tableroAbrir 0.45s ease-out forwards';
+                        sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    } else {
+                        sec.classList.remove('activa');
+                    }
+                });
+            });
+        }
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initSuperficiesTabs);
+        } else {
+            initSuperficiesTabs();
+        }
     </script>
 </body>
 </html>
