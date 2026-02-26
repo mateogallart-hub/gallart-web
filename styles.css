@@ -352,6 +352,67 @@ a.producto-card-link {
     line-height: 1.7;
 }
 
+/* Tableros - Tabs con animación de apertura */
+.tablero-tab {
+    cursor: pointer;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg-tertiary);
+    text-align: left;
+    font-family: inherit;
+    width: 100%;
+    padding: 32px;
+    border-radius: 8px;
+    transition: all var(--transition);
+    color: inherit;
+}
+
+.tablero-tab.activo {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 2px rgba(180, 140, 90, 0.2);
+}
+
+.tablero-tab.activo:hover {
+    transform: none;
+}
+
+.tableros-secciones {
+    display: grid;
+    margin-top: 40px;
+    position: relative;
+}
+
+.tableros-seccion {
+    grid-area: 1 / 1;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: opacity 0.4s ease-out, visibility 0.4s;
+}
+
+.tableros-seccion.activa {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    z-index: 1;
+    animation: tableroAbrir 0.45s ease-out forwards;
+}
+
+@keyframes tableroAbrir {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Marcas Section */
 .marcas {
     padding: 80px 0;
@@ -884,6 +945,7 @@ a.producto-card-link {
     margin-bottom: 80px;
     padding-bottom: 60px;
     border-bottom: 1px solid var(--color-border);
+    scroll-margin-top: 100px;
 }
 
 .producto-linea:last-of-type {

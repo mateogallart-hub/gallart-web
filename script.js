@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
     
-    document.querySelectorAll('.producto-card, .exposicion-card, .stat').forEach(el => {
+    document.querySelectorAll('.producto-card:not(.tablero-tab), .exposicion-card, .stat').forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
