@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Gallart - La madera como arte. Empresa asturiana desde 1959 especializada en suelos, puertas, revestimientos, vigas, tableros, módulos de cocina y madera para construcción.">
+    <meta name="description" content="Gallart - La madera como arte. Empresa asturiana desde 1959 especializada en suelos, puertas, revestimientos, cubiertas, tableros y módulos de cocina.">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="apple-touch-icon" href="assets/favicon.png">
     <title>Gallart | La Madera como Arte - Suelos, Puertas y Madera en Asturias</title>
@@ -140,17 +140,16 @@
                         <p>Puertas de interior y exterior. Diseños clásicos y modernos para dar la bienvenida que su espacio merece.</p>
                     </a>
 
-                    <a href="productos/proximamente.html" class="producto-card producto-card-link">
+                    <a href="productos/materiales-cubiertas.html" class="producto-card producto-card-link">
                         <div class="producto-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M4 20 L4 8 L20 8 L20 20"/>
-                                <line x1="2" y1="20" x2="22" y2="20"/>
-                                <line x1="8" y1="8" x2="6" y2="4"/>
-                                <line x1="16" y1="8" x2="18" y2="4"/>
+                                <path d="M3 21 L12 3 L21 21"/>
+                                <line x1="5" y1="17" x2="19" y2="17"/>
+                                <line x1="7" y1="13" x2="17" y2="13"/>
                             </svg>
                         </div>
-                        <h3>Vigas</h3>
-                        <p>Vigas decorativas y estructurales. Elemento imprescindible para proyectos con carácter.</p>
+                        <h3>Materiales para Cubiertas</h3>
+                        <p>Vigas, rastrelado, aislamiento y todo lo necesario para tejados y cubiertas.</p>
                     </a>
 
                     <a href="productos/tableros-melaminas.html" class="producto-card producto-card-link">
@@ -187,23 +186,11 @@
                                 <rect x="14" y="14" width="6" height="6"/>
                             </svg>
                         </div>
-                        <h3>Despieces de Muebles</h3>
-                        <p>Piezas y componentes para la fabricación y reparación de muebles a medida.</p>
+                        <h3>Despieces de Tableros</h3>
+                        <p>Corte a medida de tableros y melaminas para carpinteros y profesionales.</p>
                     </a>
 
-                    <a href="productos/proximamente.html" class="producto-card producto-card-link">
-                        <div class="producto-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M3 21 L3 7 L12 2 L21 7 L21 21"/>
-                                <rect x="7" y="12" width="4" height="9"/>
-                                <rect x="13" y="12" width="4" height="5"/>
-                            </svg>
-                        </div>
-                        <h3>Madera para Construcción</h3>
-                        <p>Madera estructural y materiales para proyectos de construcción y reforma.</p>
-                    </a>
-
-                </div>
+                    </div>
             </div>
         </section>
 
@@ -487,57 +474,84 @@
 
     <script src="script.js"></script>
     <script>
-        // Base de datos de productos para búsqueda
+        // Base de datos de productos para búsqueda inteligente
         const productosDB = [
-            // Suelos Interiores
-            { nombre: 'Suelos Laminados Parador', categoria: 'Suelos Interiores', url: 'productos/suelos-interiores.html', keywords: 'laminado parador suelo interior aleman' },
-            { nombre: 'Colección Classic 1050', categoria: 'Suelos Interiores', url: 'productos/suelos-interiores.html', keywords: 'classic 1050 roble haya fresno' },
-            { nombre: 'Colección Classic 1070', categoria: 'Suelos Interiores', url: 'productos/suelos-interiores.html', keywords: 'classic 1070 4v biselado' },
-            { nombre: 'Colección Trendtime 6', categoria: 'Suelos Interiores', url: 'productos/suelos-interiores.html', keywords: 'trendtime 6 xxl gran formato' },
+            // === SUELOS INTERIORES ===
+            { nombre: 'Suelos Laminados Parador', categoria: 'Suelos Interiores', url: 'productos/suelos-interiores.html', keywords: 'laminado parador suelo interior aleman casa piso parquet flotante salon habitacion dormitorio pasillo' },
+            { nombre: 'Colección Classic 1050', categoria: 'Suelos Interiores', url: 'productos/suelos-interiores.html', keywords: 'classic 1050 roble haya fresno economico basico entrada' },
+            { nombre: 'Colección Classic 1070', categoria: 'Suelos Interiores', url: 'productos/suelos-interiores.html', keywords: 'classic 1070 4v biselado calidad resistente' },
+            { nombre: 'Colección Trendtime 6', categoria: 'Suelos Interiores', url: 'productos/suelos-interiores.html', keywords: 'trendtime 6 xxl gran formato tabla ancha moderno' },
             
-            // Suelos Exteriores
-            { nombre: 'Tarimas GALLART-TEC', categoria: 'Suelos Exteriores', url: 'productos/suelos-exteriores.html', keywords: 'tarima exterior terraza piscina gallart-tec ntw' },
-            { nombre: 'UH02 Tarima Plus', categoria: 'Suelos Exteriores', url: 'productos/suelos-exteriores.html', keywords: 'uh02 tarima plus antique ipe teak' },
-            { nombre: 'Tapeta 10mm', categoria: 'Suelos Exteriores', url: 'productos/suelos-exteriores.html', keywords: 'tapeta 10mm remate' },
-            { nombre: 'Tapeta 15mm', categoria: 'Suelos Exteriores', url: 'productos/suelos-exteriores.html', keywords: 'tapeta 15mm cerramientos portones' },
+            // === SUELOS EXTERIORES ===
+            { nombre: 'Tarimas GALLART-TEC', categoria: 'Suelos Exteriores', url: 'productos/suelos-exteriores.html', keywords: 'tarima exterior terraza piscina gallart-tec ntw composite tecnologico sin mantenimiento jardin porche deck resistente agua lluvia sol garantia 25 años' },
+            { nombre: 'UH02 Tarima Plus', categoria: 'Suelos Exteriores', url: 'productos/suelos-exteriores.html', keywords: 'uh02 tarima plus antique ipe teak red cedar white blanco terraza exterior piscina' },
+            { nombre: 'Tapeta 10mm', categoria: 'Suelos Exteriores', url: 'productos/suelos-exteriores.html', keywords: 'tapeta 10mm remate coronacion piscina escalon borde' },
+            { nombre: 'Tapeta 15mm', categoria: 'Suelos Exteriores', url: 'productos/suelos-exteriores.html', keywords: 'tapeta 15mm cerramientos portones terminacion' },
             
-            // Revestimientos Exteriores
-            { nombre: 'Revestimientos GALLART-TEC', categoria: 'Revestimientos Exteriores', url: 'productos/revestimientos-exteriores.html', keywords: 'revestimiento fachada gallart-tec' },
-            { nombre: 'UH61 Castellation', categoria: 'Revestimientos Exteriores', url: 'productos/revestimientos-exteriores.html', keywords: 'uh61 castellation fachada' },
-            { nombre: 'UH122', categoria: 'Revestimientos Exteriores', url: 'productos/revestimientos-exteriores.html', keywords: 'uh122 fachada pared' },
-            { nombre: 'UH67 Lama Hueca', categoria: 'Revestimientos Exteriores', url: 'productos/revestimientos-exteriores.html', keywords: 'uh67 lama hueca ventilada' },
-            { nombre: 'UH17 Listón', categoria: 'Revestimientos Exteriores', url: 'productos/revestimientos-exteriores.html', keywords: 'uh17 liston pergola vallado' },
-            { nombre: 'UH25 Vigueta', categoria: 'Revestimientos Exteriores', url: 'productos/revestimientos-exteriores.html', keywords: 'uh25 vigueta pergola' },
-            { nombre: 'UH26 Vigueta', categoria: 'Revestimientos Exteriores', url: 'productos/revestimientos-exteriores.html', keywords: 'uh26 vigueta pergola grande' },
+            // === REVESTIMIENTOS EXTERIORES ===
+            { nombre: 'Revestimientos GALLART-TEC', categoria: 'Revestimientos Exteriores', url: 'productos/revestimientos-exteriores.html', keywords: 'revestimiento fachada gallart-tec exterior pared casa edificio sin mantenimiento composite tecnologico' },
+            { nombre: 'UH61 Castellation', categoria: 'Revestimientos Exteriores', url: 'productos/revestimientos-exteriores.html', keywords: 'uh61 castellation fachada 3d relieve textura' },
+            { nombre: 'UH122', categoria: 'Revestimientos Exteriores', url: 'productos/revestimientos-exteriores.html', keywords: 'uh122 fachada pared liso' },
+            { nombre: 'UH67 Lama Hueca', categoria: 'Revestimientos Exteriores', url: 'productos/revestimientos-exteriores.html', keywords: 'uh67 lama hueca ventilada fachada transpirable' },
+            { nombre: 'UH17 Listón', categoria: 'Revestimientos Exteriores', url: 'productos/revestimientos-exteriores.html', keywords: 'uh17 liston pergola vallado valla cerramiento decorativo separador' },
+            { nombre: 'UH25 Vigueta', categoria: 'Revestimientos Exteriores', url: 'productos/revestimientos-exteriores.html', keywords: 'uh25 vigueta pergola estructura soporte' },
+            { nombre: 'UH26 Vigueta', categoria: 'Revestimientos Exteriores', url: 'productos/revestimientos-exteriores.html', keywords: 'uh26 vigueta pergola grande estructura' },
             
-            // Zenwood
-            { nombre: 'Zenwood Ebony', categoria: 'Zenwood', url: 'productos/revestimientos-exteriores.html#zenwood', keywords: 'zenwood ebony negro carbonizado yakisugi stock' },
-            { nombre: 'Zenwood Deep Char', categoria: 'Zenwood', url: 'productos/revestimientos-exteriores.html#zenwood', keywords: 'zenwood deep char carbonizado techo' },
-            { nombre: 'Zenwood Silk Char', categoria: 'Zenwood', url: 'productos/revestimientos-exteriores.html#zenwood', keywords: 'zenwood silk char suave sedoso' },
-            { nombre: 'Zenwood Amber', categoria: 'Zenwood', url: 'productos/revestimientos-exteriores.html#zenwood', keywords: 'zenwood amber ambar calido' },
-            { nombre: 'Zenwood Ruby', categoria: 'Zenwood', url: 'productos/revestimientos-exteriores.html#zenwood', keywords: 'zenwood ruby rojo rojizo' },
-            { nombre: 'Zenwood Burnt Earth', categoria: 'Zenwood', url: 'productos/revestimientos-exteriores.html#zenwood', keywords: 'zenwood burnt earth marron tierra' },
-            { nombre: 'Zenwood Lunar', categoria: 'Zenwood', url: 'productos/revestimientos-exteriores.html#zenwood', keywords: 'zenwood lunar gris plateado' },
-            { nombre: 'Zenwood Dusk', categoria: 'Zenwood', url: 'productos/revestimientos-exteriores.html#zenwood', keywords: 'zenwood dusk negro gris crepusculo' },
-            { nombre: 'Zenwood White Ash', categoria: 'Zenwood', url: 'productos/revestimientos-exteriores.html#zenwood', keywords: 'zenwood white ash blanco ceniza claro' },
-            { nombre: 'Zenwood Natural', categoria: 'Zenwood', url: 'productos/revestimientos-exteriores.html#zenwood', keywords: 'zenwood natural madera cepillada' },
+            // === ZENWOOD (madera carbonizada) ===
+            { nombre: 'Zenwood - Madera Carbonizada', categoria: 'Zenwood', url: 'productos/revestimientos-exteriores.html#zenwood', keywords: 'zenwood madera carbonizada quemada yakisugi shou sugi ban japones natural elegante premium fachada interior exterior' },
+            { nombre: 'Zenwood Ebony', categoria: 'Zenwood', url: 'productos/revestimientos-exteriores.html#zenwood', keywords: 'zenwood ebony negro carbonizado yakisugi stock oscuro elegante' },
+            { nombre: 'Zenwood Deep Char', categoria: 'Zenwood', url: 'productos/revestimientos-exteriores.html#zenwood', keywords: 'zenwood deep char carbonizado techo profundo' },
+            { nombre: 'Zenwood Silk Char', categoria: 'Zenwood', url: 'productos/revestimientos-exteriores.html#zenwood', keywords: 'zenwood silk char suave sedoso elegante' },
+            { nombre: 'Zenwood Amber', categoria: 'Zenwood', url: 'productos/revestimientos-exteriores.html#zenwood', keywords: 'zenwood amber ambar calido dorado' },
+            { nombre: 'Zenwood Ruby', categoria: 'Zenwood', url: 'productos/revestimientos-exteriores.html#zenwood', keywords: 'zenwood ruby rojo rojizo vino' },
+            { nombre: 'Zenwood Burnt Earth', categoria: 'Zenwood', url: 'productos/revestimientos-exteriores.html#zenwood', keywords: 'zenwood burnt earth marron tierra calido' },
+            { nombre: 'Zenwood Lunar', categoria: 'Zenwood', url: 'productos/revestimientos-exteriores.html#zenwood', keywords: 'zenwood lunar gris plateado moderno' },
+            { nombre: 'Zenwood Dusk', categoria: 'Zenwood', url: 'productos/revestimientos-exteriores.html#zenwood', keywords: 'zenwood dusk negro gris crepusculo oscuro' },
+            { nombre: 'Zenwood White Ash', categoria: 'Zenwood', url: 'productos/revestimientos-exteriores.html#zenwood', keywords: 'zenwood white ash blanco ceniza claro nordico escandinavo' },
+            { nombre: 'Zenwood Natural', categoria: 'Zenwood', url: 'productos/revestimientos-exteriores.html#zenwood', keywords: 'zenwood natural madera cepillada clasico' },
             
-            // Revestimientos Interiores
-            { nombre: 'Paneles Acústicos KOBERT-IN', categoria: 'Revestimientos Interiores', url: 'productos/revestimientos-interiores.html', keywords: 'panel acustico kobert fonoabsorbente pared techo' },
-            { nombre: 'Paneles Decorativos Smart', categoria: 'Revestimientos Interiores', url: 'productos/revestimientos-interiores.html', keywords: 'panel decorativo smart pared' },
+            // === REVESTIMIENTOS INTERIORES ===
+            { nombre: 'Paneles Acústicos KOBERT-IN', categoria: 'Revestimientos Interiores', url: 'productos/revestimientos-interiores.html', keywords: 'panel acustico kobert fonoabsorbente pared techo insonorizar ruido sonido oficina sala reunion restaurante hotel eco sostenible' },
+            { nombre: 'Paneles Decorativos Smart', categoria: 'Revestimientos Interiores', url: 'productos/revestimientos-interiores.html', keywords: 'panel decorativo smart pared interior diseño moderno' },
             
-            // Superficies y Encimeras
-            { nombre: 'ARPA HPL Marmo Olimpo', categoria: 'Superficies', url: 'productos/superficies-encimeras.html', keywords: 'arpa hpl marmo olimpo 3493 encimera marmol' },
-            { nombre: 'ARPA HPL Samas', categoria: 'Superficies', url: 'productos/superficies-encimeras.html', keywords: 'arpa hpl samas 3482 encimera' },
-            { nombre: 'ARPA HPL Pulpis Light', categoria: 'Superficies', url: 'productos/superficies-encimeras.html', keywords: 'arpa hpl pulpis light 3447 encimera' },
-            { nombre: 'ARPA HPL Luserna Bianco', categoria: 'Superficies', url: 'productos/superficies-encimeras.html', keywords: 'arpa hpl luserna bianco 3355 encimera piedra' },
+            // === SUPERFICIES Y ENCIMERAS ARPA ===
+            { nombre: 'Encimeras ARPA HPL', categoria: 'Superficies', url: 'productos/superficies-encimeras.html', keywords: 'arpa hpl encimera cocina baño mesa italiano resistente calor rayado limpieza facil higienico antibacteriano' },
+            { nombre: 'Fenix NTM', categoria: 'Superficies', url: 'productos/superficies-encimeras.html', keywords: 'fenix ntm mate nanotech antihuella suave sedoso encimera cocina moderna' },
+            { nombre: 'ARPA Marmo Olimpo 3493', categoria: 'Superficies', url: 'productos/superficies-encimeras.html', keywords: 'arpa hpl marmo olimpo 3493 encimera marmol blanco vetas' },
+            { nombre: 'ARPA Samas 3482', categoria: 'Superficies', url: 'productos/superficies-encimeras.html', keywords: 'arpa hpl samas 3482 encimera marmol' },
+            { nombre: 'ARPA Pulpis Light 3447', categoria: 'Superficies', url: 'productos/superficies-encimeras.html', keywords: 'arpa hpl pulpis light 3447 encimera gris marron veteado' },
+            { nombre: 'ARPA Luserna Bianco 3355', categoria: 'Superficies', url: 'productos/superficies-encimeras.html', keywords: 'arpa hpl luserna bianco 3355 encimera piedra claro' },
+            { nombre: 'ARPA Rovere Valdweg 4627', categoria: 'Superficies', url: 'productos/superficies-encimeras.html', keywords: 'arpa hpl rovere valdweg 4627 encimera madera roble' },
+            { nombre: 'ARPA Bianco 0001', categoria: 'Superficies', url: 'productos/superficies-encimeras.html', keywords: 'arpa hpl bianco 0001 blanco liso encimera' },
+            { nombre: 'Fenix Rosso Jaipur', categoria: 'Superficies', url: 'productos/superficies-encimeras.html', keywords: 'fenix rosso jaipur rojo encimera color' },
+            { nombre: 'Fenix Beige Luxor', categoria: 'Superficies', url: 'productos/superficies-encimeras.html', keywords: 'fenix beige luxor crema encimera color' },
+            { nombre: 'Fenix Nero Ingo', categoria: 'Superficies', url: 'productos/superficies-encimeras.html', keywords: 'fenix nero ingo negro encimera color oscuro' },
+            { nombre: 'Fenix Blu Fes', categoria: 'Superficies', url: 'productos/superficies-encimeras.html', keywords: 'fenix blu fes azul encimera color' },
+            { nombre: 'Fenix Grigio Efeso', categoria: 'Superficies', url: 'productos/superficies-encimeras.html', keywords: 'fenix grigio efeso gris encimera color' },
+            { nombre: 'Fenix Bianco Malè', categoria: 'Superficies', url: 'productos/superficies-encimeras.html', keywords: 'fenix bianco male blanco encimera color' },
+            { nombre: 'Fenix Grigio Londra', categoria: 'Superficies', url: 'productos/superficies-encimeras.html', keywords: 'fenix grigio londra gris oscuro encimera color' },
             
-            // Categorías generales
-            { nombre: 'Suelos Interiores', categoria: 'Categoría', url: 'productos/suelos-interiores.html', keywords: 'suelo interior laminado' },
-            { nombre: 'Suelos Exteriores', categoria: 'Categoría', url: 'productos/suelos-exteriores.html', keywords: 'suelo exterior tarima terraza' },
-            { nombre: 'Revestimientos Exteriores', categoria: 'Categoría', url: 'productos/revestimientos-exteriores.html', keywords: 'revestimiento exterior fachada' },
-            { nombre: 'Revestimientos Interiores', categoria: 'Categoría', url: 'productos/revestimientos-interiores.html', keywords: 'revestimiento interior panel pared' },
-            { nombre: 'Superficies y Encimeras', categoria: 'Categoría', url: 'productos/superficies-encimeras.html', keywords: 'superficie encimera cocina baño hpl' },
+            // === MATERIALES PARA CUBIERTAS ===
+            { nombre: 'Vigas de Abeto Laminado', categoria: 'Materiales Cubiertas', url: 'productos/materiales-cubiertas.html', keywords: 'viga abeto laminado laminada estructura cubierta tejado techo gl24h estructural madera construccion reforma obra' },
+            { nombre: 'Materiales para Cubiertas', categoria: 'Materiales Cubiertas', url: 'productos/materiales-cubiertas.html', keywords: 'cubierta tejado techo estructura viga rastrel aislamiento madera construccion' },
+            
+            // === TABLEROS Y MELAMINAS ===
+            { nombre: 'Tableros y Melaminas', categoria: 'Tableros', url: 'productos/tableros-melaminas.html', keywords: 'tablero melamina smart sonae arauco mueble carpintero corte medida' },
+            
+            // === CATEGORÍAS GENERALES (búsquedas amplias) ===
+            { nombre: 'Suelos Interiores', categoria: 'Categoría', url: 'productos/suelos-interiores.html', keywords: 'suelo interior laminado parquet flotante casa piso habitacion salon' },
+            { nombre: 'Suelos Exteriores', categoria: 'Categoría', url: 'productos/suelos-exteriores.html', keywords: 'suelo exterior tarima terraza jardin piscina porche deck sin mantenimiento' },
+            { nombre: 'Revestimientos Exteriores', categoria: 'Categoría', url: 'productos/revestimientos-exteriores.html', keywords: 'revestimiento exterior fachada pared casa edificio' },
+            { nombre: 'Revestimientos Interiores', categoria: 'Categoría', url: 'productos/revestimientos-interiores.html', keywords: 'revestimiento interior panel pared acustico decorativo' },
+            { nombre: 'Superficies y Encimeras', categoria: 'Categoría', url: 'productos/superficies-encimeras.html', keywords: 'superficie encimera cocina baño hpl fenix arpa mesa mostrador' },
+            { nombre: 'Materiales para Cubiertas', categoria: 'Categoría', url: 'productos/materiales-cubiertas.html', keywords: 'cubierta tejado techo viga estructura madera construccion obra reforma' },
+            
+            // === INTENCIONES DE BÚSQUEDA (lo que la gente realmente busca) ===
+            { nombre: 'Terraza sin mantenimiento', categoria: 'Recomendación', url: 'productos/suelos-exteriores.html', keywords: 'terraza sin mantenimiento facil limpiar resistente agua sol lluvia duradero' },
+            { nombre: 'Renovar cocina', categoria: 'Recomendación', url: 'productos/superficies-encimeras.html', keywords: 'renovar cocina cambiar encimera nueva moderna' },
+            { nombre: 'Insonorizar habitación', categoria: 'Recomendación', url: 'productos/revestimientos-interiores.html', keywords: 'insonorizar habitacion ruido vecinos acustico silencio aislamiento sonido' },
+            { nombre: 'Pérgola jardín', categoria: 'Recomendación', url: 'productos/revestimientos-exteriores.html', keywords: 'pergola jardin porche sombra exterior liston vigueta' },
+            { nombre: 'Fachada moderna', categoria: 'Recomendación', url: 'productos/revestimientos-exteriores.html#zenwood', keywords: 'fachada moderna diseño arquitectura casa edificio revestir' },
         ];
 
         // Elementos del buscador
@@ -586,27 +600,71 @@
             }
         });
 
+        // Normalizar texto (quitar acentos)
+        function normalizar(texto) {
+            return texto.toLowerCase()
+                .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+                .replace(/[^a-z0-9\s]/g, ' ');
+        }
+
+        // Calcular relevancia de un producto para la búsqueda
+        function calcularRelevancia(producto, palabras) {
+            let puntos = 0;
+            const nombre = normalizar(producto.nombre);
+            const keywords = normalizar(producto.keywords);
+            const categoria = normalizar(producto.categoria);
+            
+            for (const palabra of palabras) {
+                if (palabra.length < 2) continue;
+                
+                // Coincidencia exacta en nombre = máxima prioridad
+                if (nombre.includes(palabra)) puntos += 10;
+                // Coincidencia en keywords
+                if (keywords.includes(palabra)) puntos += 5;
+                // Coincidencia en categoría
+                if (categoria.includes(palabra)) puntos += 3;
+            }
+            
+            // Bonus si coincide con múltiples palabras (búsquedas compuestas)
+            const coincidencias = palabras.filter(p => 
+                p.length >= 2 && (nombre.includes(p) || keywords.includes(p))
+            ).length;
+            if (coincidencias > 1) puntos += coincidencias * 3;
+            
+            return puntos;
+        }
+
         // Buscar productos
         buscadorInput.addEventListener('input', (e) => {
-            const query = e.target.value.toLowerCase().trim();
+            const queryOriginal = e.target.value.trim();
+            const query = normalizar(queryOriginal);
+            const palabras = query.split(/\s+/).filter(p => p.length >= 2);
             
-            if (query.length < 2) {
+            if (queryOriginal.length < 2) {
                 buscadorResultados.innerHTML = '<p class="buscador-hint">Escribe al menos 2 caracteres...</p>';
                 return;
             }
 
-            const resultados = productosDB.filter(p => 
-                p.nombre.toLowerCase().includes(query) || 
-                p.keywords.toLowerCase().includes(query) ||
-                p.categoria.toLowerCase().includes(query)
-            );
+            // Buscar y puntuar resultados
+            const resultados = productosDB
+                .map(p => ({ ...p, relevancia: calcularRelevancia(p, palabras) }))
+                .filter(p => p.relevancia > 0)
+                .sort((a, b) => b.relevancia - a.relevancia);
 
             if (resultados.length === 0) {
                 buscadorResultados.innerHTML = '<p class="buscador-sin-resultados">No se encontraron productos. Prueba con otro término.</p>';
                 return;
             }
 
-            buscadorResultados.innerHTML = resultados.slice(0, 8).map(p => `
+            // Eliminar duplicados por URL (mantener el de mayor relevancia)
+            const vistos = new Set();
+            const unicos = resultados.filter(p => {
+                if (vistos.has(p.url)) return false;
+                vistos.add(p.url);
+                return true;
+            });
+
+            buscadorResultados.innerHTML = unicos.slice(0, 8).map(p => `
                 <a href="${p.url}" class="buscador-resultado">
                     <span class="buscador-resultado-nombre">${p.nombre}</span>
                     <span class="buscador-resultado-categoria">${p.categoria}</span>

@@ -131,6 +131,21 @@
                                     <span class="color-tag" data-color="white">White</span>
                                 </div>
                                 <p class="modelo-descripcion">Tarima encapsulada de última generación con textura única. 95% materiales reciclados. Ideal para terrazas, jardines y zonas de piscina.</p>
+                                
+                                <div class="calculadora-m2">
+                                    <h5>Calculadora de lamas</h5>
+                                    <div class="calculadora-inputs">
+                                        <div class="input-group">
+                                            <label for="calc-m2-input">Metros cuadrados (m²)</label>
+                                            <input type="number" id="calc-m2-input" min="0" step="0.1" placeholder="ej: 15">
+                                        </div>
+                                        <button type="button" id="calc-btn" class="btn btn-secondary">Calcular</button>
+                                    </div>
+                                    <div class="calculadora-resultado" id="calc-resultado" style="display: none;">
+                                        <p><strong>Lamas necesarias:</strong> <span id="calc-lamas">0</span> unidades</p>
+                                        <p class="calc-nota">* Se añade un 10% de margen por cortes y desperdicio</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -308,5 +323,37 @@
     </div>
 
     <script src="../script.js"></script>
+    <script>
+        // Calculadora de lamas para UH02 Tarima Plus
+        const calcBtn = document.getElementById('calc-btn');
+        const calcM2Input = document.getElementById('calc-m2-input');
+        const calcResultado = document.getElementById('calc-resultado');
+        const calcLamas = document.getElementById('calc-lamas');
+
+        // Dimensiones de la lama UH02: 2200 x 140 mm = 0.308 m² por lama
+        const M2_POR_LAMA = 2.2 * 0.14;
+
+        calcBtn.addEventListener('click', () => {
+            const m2 = parseFloat(calcM2Input.value);
+
+            if (!m2 || m2 <= 0) {
+                alert('Introduce un valor válido de metros cuadrados');
+                return;
+            }
+
+            const m2ConMargen = m2 * 1.10;
+            const lamasNecesarias = Math.ceil(m2ConMargen / M2_POR_LAMA);
+
+            calcLamas.textContent = lamasNecesarias;
+            calcResultado.style.display = 'block';
+        });
+
+        // También calcular al presionar Enter
+        calcM2Input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                calcBtn.click();
+            }
+        });
+    </script>
 </body>
 </html>

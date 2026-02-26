@@ -3124,3 +3124,159 @@ a.producto-card-link {
         justify-content: center;
     }
 }
+
+/* ========================================
+   TABLA VIGAS
+   ======================================== */
+
+.tabla-responsive {
+    overflow-x: auto;
+}
+
+.tabla-vigas {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--color-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+}
+
+.tabla-vigas th,
+.tabla-vigas td {
+    padding: 14px 20px;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.tabla-vigas th {
+    background: var(--color-bg-secondary);
+    font-weight: 600;
+    color: var(--color-text);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tabla-vigas td {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+}
+
+.tabla-vigas tbody tr:hover {
+    background: var(--color-bg-secondary);
+}
+
+.tabla-vigas tbody tr:last-child td {
+    border-bottom: none;
+}
+
+@media (max-width: 600px) {
+    .tabla-vigas th,
+    .tabla-vigas td {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+    }
+}
+
+/* ========================================
+   CALCULADORA M2 TARIMA
+   ======================================== */
+
+.calculadora-m2 {
+    margin-top: 20px;
+    padding: 20px;
+    background: var(--color-bg-secondary);
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+}
+
+.calculadora-m2 h5 {
+    margin: 0 0 15px 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.calculadora-inputs {
+    display: flex;
+    gap: 15px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.calculadora-inputs .input-group {
+    flex: 1;
+    min-width: 100px;
+}
+
+.calculadora-inputs label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 5px;
+}
+
+.calculadora-inputs input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.calculadora-inputs input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+.calculadora-inputs input::placeholder {
+    color: var(--color-text-secondary);
+    opacity: 0.6;
+}
+
+.calculadora-inputs .btn {
+    padding: 10px 20px;
+    white-space: nowrap;
+}
+
+.calculadora-resultado {
+    margin-top: 15px;
+    padding: 15px;
+    background: var(--color-bg);
+    border-radius: 8px;
+    border-left: 3px solid var(--color-accent);
+}
+
+.calculadora-resultado p {
+    margin: 0 0 8px 0;
+    font-size: 0.95rem;
+    color: var(--color-text);
+}
+
+.calculadora-resultado p:last-child {
+    margin-bottom: 0;
+}
+
+.calculadora-resultado .calc-nota {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    font-style: italic;
+}
+
+@media (max-width: 600px) {
+    .calculadora-inputs {
+        flex-direction: column;
+    }
+    
+    .calculadora-inputs .input-group {
+        width: 100%;
+    }
+    
+    .calculadora-inputs .btn {
+        width: 100%;
+    }
+}
