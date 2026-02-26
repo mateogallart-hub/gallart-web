@@ -1,5 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
     
+    // Hero slideshow - cambio automático de imágenes de fondo
+    const heroSlides = document.querySelectorAll('.hero-bg-slide');
+    if (heroSlides.length > 1) {
+        let currentIndex = 0;
+        setInterval(function() {
+            heroSlides[currentIndex].classList.remove('activo');
+            currentIndex = (currentIndex + 1) % heroSlides.length;
+            heroSlides[currentIndex].classList.add('activo');
+        }, 5000);
+    }
+    
     // GALLART-TEC Color Switcher
     const colorTags = document.querySelectorAll('.coleccion-suelo[data-producto] .color-tag[data-color]');
     
