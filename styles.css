@@ -22,9 +22,11 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
+    overflow-x: hidden;
     font-family: var(--font-body);
     background-color: var(--color-bg);
     color: var(--color-text);
@@ -96,7 +98,8 @@ img {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 5px;
+    padding: 12px;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .nav-toggle span {
@@ -1782,6 +1785,18 @@ a.producto-card-link {
 }
 
 @media (max-width: 480px) {
+    .container {
+        padding: 0 16px;
+    }
+    
+    .nav {
+        padding: 12px 16px;
+    }
+    
+    .logo img {
+        height: 42px;
+    }
+    
     .hero-buttons {
         flex-direction: column;
         align-items: center;
@@ -1790,6 +1805,30 @@ a.producto-card-link {
     .hero-buttons .btn {
         width: 100%;
         max-width: 280px;
+    }
+    
+    .productos-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .producto-card {
+        padding: 24px 20px;
+    }
+    
+    .marca-item {
+        min-width: 120px;
+        padding: 20px 24px;
+    }
+    
+    .profesionales-card {
+        padding: 24px 20px;
+    }
+    
+    .profesionales-cta {
+        width: 100%;
+        text-align: center;
+        padding: 16px 24px;
     }
     
     .contacto-botones {
@@ -1808,6 +1847,15 @@ a.producto-card-link {
     
     .stat-numero {
         font-size: 2.5rem;
+    }
+    
+    .exposiciones-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    .marca-hero {
+        padding: 120px 0 40px;
     }
 }
 
