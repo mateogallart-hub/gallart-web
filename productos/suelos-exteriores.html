@@ -117,7 +117,7 @@
                     <div class="modelos-section">
                         <h3>Tarimas Disponibles</h3>
                         
-                        <div class="coleccion-suelo con-imagen" data-producto="uh02">
+                        <div class="coleccion-suelo con-imagen producto-clicable" data-producto="uh02" data-nombre="UH02 Tarima Plus" data-ref="GALLART-TEC" data-imagenes="../assets/gallart-tec-uh02-teak.png,../assets/uh02-proyecto-1.png,../assets/uh02-proyecto-2.png,../assets/uh02-proyecto-3.png,../assets/uh02-proyecto-4.png">
                             <div class="producto-imagen">
                                 <img src="../assets/gallart-tec-uh02-teak.png" alt="UH02 Tarima Plus GALLART-TEC">
                             </div>
@@ -132,6 +132,7 @@
                                     <span class="color-tag" data-color="white">White</span>
                                 </div>
                                 <p class="modelo-descripcion">Tarima encapsulada de última generación con textura única. 95% materiales reciclados. Ideal para terrazas, jardines y zonas de piscina.</p>
+                                <p class="ver-galeria-link">Ver galería de proyectos →</p>
                                 
                                 <div class="calculadora-m2">
                                     <h5>Calculadora de lamas</h5>
@@ -312,6 +313,22 @@
         </svg>
     </a>
 
+    <!-- Modal galería producto -->
+    <div id="modal-producto" class="modal-galeria">
+        <div class="modal-galeria-contenido">
+            <button class="modal-cerrar">&times;</button>
+            <h3 id="modal-producto-titulo">Nombre del producto</h3>
+            <p id="modal-producto-ref" class="modal-ref"></p>
+            <div id="modal-producto-imagenes" class="modal-imagenes-grid"></div>
+        </div>
+    </div>
+
+    <!-- Modal imagen ampliada -->
+    <div id="modal-ampliada" class="modal-ampliada">
+        <button class="modal-ampliada-cerrar">&times;</button>
+        <img id="modal-ampliada-img" class="modal-ampliada-img" src="" alt="">
+    </div>
+
     <!-- Banner de Cookies -->
     <div id="cookie-banner" class="cookie-banner">
         <div class="container">
@@ -325,6 +342,54 @@
 
     <script src="../script.js"></script>
     <script>
+        // Modal galería producto UH02
+        const modalProducto = document.getElementById('modal-producto');
+        const modalProductoTitulo = document.getElementById('modal-producto-titulo');
+        const modalProductoRef = document.getElementById('modal-producto-ref');
+        const modalProductoImagenes = document.getElementById('modal-producto-imagenes');
+        const modalProductoCerrar = modalProducto.querySelector('.modal-cerrar');
+        const modalAmpliada = document.getElementById('modal-ampliada');
+        const modalAmpliadaImg = document.getElementById('modal-ampliada-img');
+        const modalAmpliadaCerrar = modalAmpliada.querySelector('.modal-ampliada-cerrar');
+
+        document.querySelectorAll('.producto-clicable').forEach(card => {
+            card.addEventListener('click', (e) => {
+                if (e.target.classList.contains('color-tag')) return;
+                if (e.target.closest('.calculadora-m2')) return;
+                const nombre = card.dataset.nombre;
+                const ref = card.dataset.ref;
+                const imagenesStr = card.dataset.imagenes;
+                if (!imagenesStr) return;
+                const imagenes = imagenesStr.split(',');
+                modalProductoTitulo.textContent = nombre;
+                modalProductoRef.textContent = ref;
+                modalProductoImagenes.innerHTML = '';
+                imagenes.forEach(src => {
+                    const img = document.createElement('img');
+                    img.src = src.trim();
+                    img.alt = nombre;
+                    img.addEventListener('click', () => {
+                        modalAmpliadaImg.src = img.src;
+                        modalAmpliadaImg.alt = nombre;
+                        modalAmpliada.classList.add('activo');
+                    });
+                    modalProductoImagenes.appendChild(img);
+                });
+                modalProducto.classList.add('activo');
+            });
+        });
+
+        modalProductoCerrar.addEventListener('click', () => modalProducto.classList.remove('activo'));
+        modalProducto.addEventListener('click', (e) => { if (e.target === modalProducto) modalProducto.classList.remove('activo'); });
+        modalAmpliadaCerrar.addEventListener('click', () => modalAmpliada.classList.remove('activo'));
+        modalAmpliada.addEventListener('click', (e) => { if (e.target === modalAmpliada) modalAmpliada.classList.remove('activo'); });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (modalAmpliada.classList.contains('activo')) modalAmpliada.classList.remove('activo');
+                else if (modalProducto.classList.contains('activo')) modalProducto.classList.remove('activo');
+            }
+        });
+
         // Calculadora de lamas para UH02 Tarima Plus
         const calcBtn = document.getElementById('calc-btn');
         const calcM2Input = document.getElementById('calc-m2-input');
