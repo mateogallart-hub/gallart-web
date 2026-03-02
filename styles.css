@@ -577,6 +577,13 @@ a.producto-card-link {
 .melamina-marca-content.activo {
     display: block;
 }
+
+.especiales-tipo-content {
+    display: none;
+}
+.especiales-tipo-content.activo {
+    display: block;
+}
 @media (max-width: 768px) {
     .melamina-marca-grid {
         grid-template-columns: 1fr;

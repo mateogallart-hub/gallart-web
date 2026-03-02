@@ -1147,24 +1147,82 @@
                     <h2>Tableros Especiales</h2>
                     <p class="linea-intro">Tableros técnicos con propiedades específicas para aplicaciones especiales.</p>
                     
-                    <div class="modelos-section">
-                        <h3>Lisocore</h3>
-                        <p class="section-note">Tablero ligero con núcleo alveolar. Reduce hasta la mitad el peso respecto a tableros tradicionales, manteniendo excelente estabilidad y resistencia.</p>
-                        <div class="lisocore-galeria" style="margin: 24px 0;">
-                            <div class="lisocore-galeria-item"><img src="../assets/lisocore-1.png" alt="Lisocore - Corte transversal con herraje"></div>
-                            <div class="lisocore-galeria-item"><img src="../assets/lisocore-2.png" alt="Lisocore - Estructura del núcleo corrugado"></div>
-                            <div class="lisocore-galeria-item"><img src="../assets/lisocore-3.png" alt="Lisocore - Apilamiento de tableros"></div>
-                            <div class="lisocore-galeria-item"><img src="../assets/lisocore-4.png" alt="Lisocore - Panel blanco con herrajes y cableado"></div>
-                            <div class="lisocore-galeria-item"><img src="../assets/lisocore-5.png" alt="Lisocore - Corte con conectores"></div>
-                            <div class="lisocore-galeria-item"><img src="../assets/lisocore-6.png" alt="Lisocore - Detalle del núcleo alveolar"></div>
+                    <div class="especiales-tipo-selector" style="margin: 28px 0;">
+                        <h3 class="melamina-marca-titulo">Elige el tipo de tablero</h3>
+                        <div class="melamina-marca-grid" style="grid-template-columns: repeat(3, 1fr);">
+                            <button type="button" class="melamina-marca-card especiales-tipo-card activo" data-tipo="lisocore">
+                                <div class="melamina-marca-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M4 12 L12 4 L20 12 L12 20 Z"/></svg>
+                                </div>
+                                <h4>Lisocore</h4>
+                                <p>Tablero ligero con núcleo alveolar. Ideal para muebles, puertas correderas y automoción.</p>
+                                <span class="melamina-marca-cta">Ver detalles</span>
+                            </button>
+                            <button type="button" class="melamina-marca-card especiales-tipo-card" data-tipo="viroc">
+                                <div class="melamina-marca-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                </div>
+                                <h4>Viroc</h4>
+                                <p>Madera y cemento. Alta resistencia, ignífugo. Fachadas, suelos y construcción.</p>
+                                <span class="melamina-marca-cta">Ver detalles</span>
+                            </button>
+                            <button type="button" class="melamina-marca-card especiales-tipo-card" data-tipo="carrocero">
+                                <div class="melamina-marca-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="6" width="20" height="12" rx="1"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="8" y1="6" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="18"/></svg>
+                                </div>
+                                <h4>Carrocero</h4>
+                                <p>Tablero fenólico para carrocería. Caravanas, furgonetas camper y remolques.</p>
+                                <span class="melamina-marca-cta">Ver detalles</span>
+                            </button>
                         </div>
-                        <div class="marca-datos" style="margin-top: 20px;">
-                            <p class="puerta-catalogo-label">Medidas</p>
-                            <p><strong>2800 × 2070 mm</strong></p>
-                            <p class="puerta-catalogo-label">Grosores</p>
-                            <p><strong>38 · 50 mm</strong></p>
-                            <p class="puerta-catalogo-label">Usos y aplicaciones</p>
-                            <p>Muebles (oficina, cocina, baño, armarios), puertas correderas, muros móviles, revestimientos de pared, sector naval, construcción ligera y automoción (caravanas). Ideal cuando se requiere ligereza sin perder estabilidad dimensional.</p>
+                    </div>
+
+                    <div class="especiales-tipo-content activo" data-tipo="lisocore">
+                        <div class="modelos-section">
+                            <h3>Lisocore</h3>
+                            <p class="section-note">Tablero ligero con núcleo alveolar. Reduce hasta la mitad el peso respecto a tableros tradicionales, manteniendo excelente estabilidad y resistencia.</p>
+                            <div class="lisocore-galeria" style="margin: 24px 0;">
+                                <div class="lisocore-galeria-item"><img src="../assets/lisocore-1.png" alt="Lisocore - Corte transversal con herraje"></div>
+                                <div class="lisocore-galeria-item"><img src="../assets/lisocore-2.png" alt="Lisocore - Estructura del núcleo corrugado"></div>
+                                <div class="lisocore-galeria-item"><img src="../assets/lisocore-3.png" alt="Lisocore - Apilamiento de tableros"></div>
+                                <div class="lisocore-galeria-item"><img src="../assets/lisocore-4.png" alt="Lisocore - Panel blanco con herrajes y cableado"></div>
+                                <div class="lisocore-galeria-item"><img src="../assets/lisocore-5.png" alt="Lisocore - Corte con conectores"></div>
+                                <div class="lisocore-galeria-item"><img src="../assets/lisocore-6.png" alt="Lisocore - Detalle del núcleo alveolar"></div>
+                            </div>
+                            <div class="marca-datos" style="margin-top: 20px;">
+                                <p class="puerta-catalogo-label">Medidas</p>
+                                <p><strong>2800 × 2070 mm</strong></p>
+                                <p class="puerta-catalogo-label">Grosores</p>
+                                <p><strong>38 · 50 mm</strong></p>
+                                <p class="puerta-catalogo-label">Usos y aplicaciones</p>
+                                <p>Muebles (oficina, cocina, baño, armarios), puertas correderas, muros móviles, revestimientos de pared, sector naval, construcción ligera y automoción (caravanas). Ideal cuando se requiere ligereza sin perder estabilidad dimensional.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="especiales-tipo-content" data-tipo="viroc">
+                        <div class="modelos-section">
+                            <h3>Viroc</h3>
+                            <p class="section-note">Tablero de fibras de madera y cemento. Alta resistencia, ignífugo e idóneo para exterior. Estructural, revestimientos y suelos.</p>
+                            <div class="marca-datos" style="margin-top: 20px;">
+                                <p class="puerta-catalogo-label">Medidas</p>
+                                <p><strong>Consultar formatos disponibles</strong></p>
+                                <p class="puerta-catalogo-label">Usos y aplicaciones</p>
+                                <p>Revestimientos de fachada, suelos, tabiquería, estructuras ligeras, mobiliario urbano y construcción en general. Resistente a la humedad, fuego y agentes atmosféricos.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="especiales-tipo-content" data-tipo="carrocero">
+                        <div class="modelos-section">
+                            <h3>Carrocero</h3>
+                            <p class="section-note">Tablero fenólico para carrocería de vehículos. Alta resistencia mecánica y al desgaste. Ideal para caravanas, furgonetas camper y remolques.</p>
+                            <div class="marca-datos" style="margin-top: 20px;">
+                                <p class="puerta-catalogo-label">Medidas</p>
+                                <p><strong>Consultar formatos disponibles</strong></p>
+                                <p class="puerta-catalogo-label">Usos y aplicaciones</p>
+                                <p>Revestimiento interior de caravanas, furgonetas camper, remolques, camiones y carrocerías. Superficie lisa y resistente, fácil de limpiar.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1400,6 +1458,33 @@
             document.addEventListener('DOMContentLoaded', initMelaminaMarcaTabs);
         } else {
             initMelaminaMarcaTabs();
+        }
+
+        // Tabs Lisocore / Viroc / Carrocero dentro de Tableros Especiales
+        function initEspecialesTipoTabs() {
+            const cards = document.querySelectorAll('.especiales-tipo-card');
+            const contents = document.querySelectorAll('.especiales-tipo-content');
+
+            if (!cards.length || !contents.length) return;
+
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const tipo = this.dataset.tipo;
+                    if (!tipo) return;
+
+                    cards.forEach(c => c.classList.remove('activo'));
+                    this.classList.add('activo');
+
+                    contents.forEach(c => {
+                        c.classList.toggle('activo', c.dataset.tipo === tipo);
+                    });
+                });
+            });
+        }
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initEspecialesTipoTabs);
+        } else {
+            initEspecialesTipoTabs();
         }
     </script>
 </body>
