@@ -1184,6 +1184,82 @@ a.producto-card-link {
     margin-bottom: 24px;
 }
 
+/* Puertas - catálogo por tipo */
+.puerta-catalogo {
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-top: 24px;
+}
+
+.puerta-catalogo-titulo {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text);
+}
+
+.puerta-catalogo-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: start;
+}
+
+.puerta-catalogo-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-accent);
+    margin: 16px 0 6px 0;
+}
+
+.puerta-catalogo-label:first-child {
+    margin-top: 0;
+}
+
+.puerta-catalogo-info p,
+.puerta-catalogo-medidas p {
+    margin: 0 0 8px 0;
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+}
+
+.puerta-catalogo-medidas {
+    background: var(--color-bg);
+    padding: 16px 20px;
+    border-radius: 8px;
+    min-width: 180px;
+}
+
+.puerta-medidas-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+}
+
+.puerta-medidas-lista li {
+    padding: 4px 0;
+}
+
+@media (max-width: 640px) {
+    .puerta-catalogo-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .puerta-catalogo-medidas {
+        min-width: auto;
+    }
+}
+
 .modelos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
