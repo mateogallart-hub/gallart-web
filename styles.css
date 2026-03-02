@@ -1547,6 +1547,49 @@ a.producto-card-link {
     padding: 4px 0;
 }
 
+/* Lisocore galería - imágenes uniformes */
+.lisocore-galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.lisocore-galeria-item {
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+}
+
+.lisocore-galeria-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .lisocore-galeria {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .lisocore-galeria {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Panel sandwich: 4 imágenes en grid 2x2 */
+.panel-sandwich-galeria {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 480px) {
+    .panel-sandwich-galeria {
+        grid-template-columns: 1fr;
+    }
+}
+
 @media (max-width: 640px) {
     .puerta-catalogo-grid {
         grid-template-columns: 1fr;
