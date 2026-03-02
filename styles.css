@@ -580,9 +580,183 @@ a.producto-card-link {
 @media (max-width: 768px) {
     .melamina-marca-grid {
         grid-template-columns: 1fr;
+        gap: 16px;
     }
     .melamina-marca-card {
         padding: 28px 24px;
+    }
+    .melamina-marca-selector {
+        margin-bottom: 32px;
+    }
+}
+@media (max-width: 480px) {
+    .melamina-marca-titulo {
+        font-size: 1.25rem;
+        margin-bottom: 20px;
+    }
+    .melamina-marca-card {
+        padding: 24px 20px;
+        min-height: 44px; /* Touch target accesible */
+    }
+    .melamina-marca-icon {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 16px;
+    }
+    .melamina-marca-card h4 {
+        font-size: 1.25rem;
+    }
+    .melamina-marca-card p {
+        font-size: 0.9rem;
+    }
+}
+
+/* DM / MDF - Especificaciones por tipo */
+.dm-tipo-section {
+    margin-bottom: 48px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--color-border);
+}
+.dm-tipo-section:last-child {
+    border-bottom: none;
+}
+.dm-tipo-section h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    color: var(--color-text);
+}
+.dm-tipo-desc {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+.dm-formatos {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.dm-formato-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 12px 20px;
+    padding: 16px 20px;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+}
+.dm-formato-medidas {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--color-accent);
+    min-width: 140px;
+}
+.dm-formato-grosores {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+}
+@media (max-width: 480px) {
+    .dm-tipo-section {
+        margin-bottom: 32px;
+        padding-bottom: 28px;
+    }
+    .dm-formato-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 14px 16px;
+    }
+    .dm-formato-medidas {
+        min-width: auto;
+        font-size: 1rem;
+    }
+    .dm-formato-grosores {
+        font-size: 0.9rem;
+        word-break: break-word;
+    }
+}
+
+/* Despieces */
+.despieces-aviso {
+    margin-top: 32px;
+    padding: 28px;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-accent);
+    border-radius: 8px;
+    text-align: center;
+}
+.despieces-aviso p {
+    margin: 0 0 20px 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--color-text);
+}
+.despiece-cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+.despieces-plantilla-info {
+    margin-top: 48px;
+    padding-top: 40px;
+    border-top: 1px solid var(--color-border);
+}
+.despieces-plantilla-info h3 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    color: var(--color-text);
+}
+.despieces-plantilla-info > p {
+    color: var(--color-text-secondary);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+.despieces-columnas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+}
+.despiece-columna {
+    padding: 14px 18px;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+.despiece-col-label {
+    font-weight: 600;
+    color: var(--color-text);
+    display: block;
+    margin-bottom: 4px;
+}
+.despiece-col-desc {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+}
+.despieces-col-nota {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    margin: 0;
+    line-height: 1.6;
+}
+@media (max-width: 480px) {
+    .despieces-aviso {
+        padding: 24px 20px;
+    }
+    .despiece-cta-buttons {
+        flex-direction: column;
+    }
+    .despiece-cta-buttons .btn-whatsapp {
+        width: 100%;
+        text-align: center;
+    }
+    .despieces-columnas {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -1280,6 +1454,49 @@ a.producto-card-link {
     padding-bottom: 12px;
     border-bottom: 1px solid var(--color-border);
     color: var(--color-text);
+}
+
+.puerta-modelo-imagen {
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 400px;
+}
+
+.puerta-modelo-imagen img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.puerta-modelos-galeria {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.puerta-modelos-galeria .puerta-modelo-imagen {
+    max-width: 280px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.puerta-modelos-galeria .puerta-modelo-imagen img {
+    display: block;
+    width: 100%;
+    height: 380px;
+    object-fit: contain;
+    object-position: top center;
+    background: var(--color-bg);
+}
+
+.puerta-modelo-nombre {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    margin-top: 8px;
+    text-align: center;
 }
 
 .puerta-catalogo-grid {

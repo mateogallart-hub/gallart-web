@@ -1,0 +1,11 @@
+# Reglas del proyecto - Página web Gallart
+
+## Diseño móvil (Mobile-first)
+
+**Siempre tener en cuenta el formato móvil** en cualquier cambio de UI o CSS:
+
+- Añadir media queries para breakpoints: 768px (tablet), 480px (móvil), 360px (móvil pequeño)
+- Touch targets mínimos de 44px para botones y elementos clicables
+- Grids: en móvil usar 1 columna o 2 columnas según el contenido
+- Reducir padding y tamaños de fuente en pantallas pequeñas
+- Probar que los selectores (tabs, cards) funcionen bien en touch
