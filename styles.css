@@ -2473,6 +2473,90 @@ a.producto-card-link {
     font-weight: 500;
 }
 
+/* Madera Bruta - especies grid */
+.madera-especies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.madera-especie-card {
+    background: linear-gradient(135deg, var(--color-bg-secondary) 0%, var(--color-bg) 100%);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    text-align: center;
+    font-weight: 500;
+    color: var(--color-text);
+    font-size: 1rem;
+    transition: all var(--transition);
+}
+
+.madera-especie-card:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.madera-consulta-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-top: 36px;
+}
+
+.madera-consulta-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    background: var(--color-accent);
+    color: var(--color-bg);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.madera-consulta-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.madera-consulta-texto {
+    flex: 1;
+}
+
+.madera-consulta-titulo {
+    font-weight: 600;
+    color: var(--color-text);
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+}
+
+.madera-consulta-texto p:last-child {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .madera-especies-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .madera-consulta-box {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
 .modelo-descripcion {
     color: var(--color-text-secondary);
     font-size: 0.95rem;
@@ -3835,6 +3919,19 @@ a.producto-card-link {
 
 .tabla-vigas tbody tr:last-child td {
     border-bottom: none;
+}
+
+.tabla-vigas .tabla-grupo-especie td {
+    background: var(--color-bg-secondary);
+    font-weight: 600;
+    color: var(--color-text);
+    padding: 16px 20px;
+    border-top: 2px solid var(--color-border);
+    font-size: 1rem;
+}
+
+.tabla-vigas .tabla-grupo-especie:first-child td {
+    border-top: none;
 }
 
 @media (max-width: 600px) {
