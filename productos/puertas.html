@@ -81,15 +81,15 @@
                         <h4 class="puerta-catalogo-titulo">Laminadas</h4>
                         <div class="puerta-modelos-galeria" style="margin-bottom: 20px;">
                             <div class="puerta-modelo-imagen">
-                                <img src="../assets/roble-nature.png" alt="Puerta Roble Nature - Laminado con acabado poro natural">
+                                <img src="../assets/roble-nature.png" srcset="../assets/roble-nature-2x.png 2x" data-src-high="../assets/roble-nature-2x.png" alt="Puerta Roble Nature - Laminado con acabado poro natural">
                                 <span class="puerta-modelo-nombre">Roble Nature</span>
                             </div>
                             <div class="puerta-modelo-imagen">
-                                <img src="../assets/fresno-slovenia.png" alt="Puerta Fresno Slovenia - Laminado acabado fresno">
+                                <img src="../assets/fresno-slovenia.png" srcset="../assets/fresno-slovenia-2x.png 2x" data-src-high="../assets/fresno-slovenia-2x.png" alt="Puerta Fresno Slovenia - Laminado acabado fresno">
                                 <span class="puerta-modelo-nombre">Fresno Slovenia</span>
                             </div>
                             <div class="puerta-modelo-imagen">
-                                <img src="../assets/nogal-arena.png" alt="Puerta Nogal Arena - Laminado acabado nogal arena">
+                                <img src="../assets/nogal-arena.png" srcset="../assets/nogal-arena-2x.png 2x" data-src-high="../assets/nogal-arena-2x.png" alt="Puerta Nogal Arena - Laminado acabado nogal arena">
                                 <span class="puerta-modelo-nombre">Nogal Arena</span>
                             </div>
                         </div>
@@ -131,7 +131,7 @@
                         <h4 class="puerta-catalogo-titulo">Madera</h4>
                         <div class="puerta-modelos-galeria" style="margin-bottom: 20px;">
                             <div class="puerta-modelo-imagen">
-                                <img src="../assets/malta-c6-roble.png" alt="Puerta Malta C6 Roble - Madera noble con chapa natural">
+                                <img src="../assets/malta-c6-roble.png" srcset="../assets/malta-c6-roble-2x.png 2x" data-src-high="../assets/malta-c6-roble-2x.png" alt="Puerta Malta C6 Roble - Madera noble con chapa natural">
                                 <span class="puerta-modelo-nombre">Malta C6 Roble</span>
                             </div>
                         </div>
@@ -171,23 +171,23 @@
                         <h4 class="puerta-catalogo-titulo">Lacadas</h4>
                         <div class="puerta-modelos-galeria" style="margin-bottom: 20px;">
                             <div class="puerta-modelo-imagen">
-                                <img src="../assets/lacada-100.png" alt="Puerta Lacada modelo 100 - Acabado blanco">
+                                <img src="../assets/lacada-100.png" srcset="../assets/lacada-100-2x.png 2x" data-src-high="../assets/lacada-100-2x.png" alt="Puerta Lacada modelo 100 - Acabado blanco">
                                 <span class="puerta-modelo-nombre">100</span>
                             </div>
                             <div class="puerta-modelo-imagen">
-                                <img src="../assets/lacada-200.png" alt="Puerta Lacada modelo 200 - Acabado blanco con ranuras horizontales">
+                                <img src="../assets/lacada-200.png" srcset="../assets/lacada-200-2x.png 2x" data-src-high="../assets/lacada-200-2x.png" alt="Puerta Lacada modelo 200 - Acabado blanco con ranuras horizontales">
                                 <span class="puerta-modelo-nombre">200</span>
                             </div>
                             <div class="puerta-modelo-imagen">
-                                <img src="../assets/lacada-400.png" alt="Puerta Lacada modelo 400 - Acabado blanco con ranuras horizontales">
+                                <img src="../assets/lacada-400.png" srcset="../assets/lacada-400-2x.png 2x" data-src-high="../assets/lacada-400-2x.png" alt="Puerta Lacada modelo 400 - Acabado blanco con ranuras horizontales">
                                 <span class="puerta-modelo-nombre">400</span>
                             </div>
                             <div class="puerta-modelo-imagen">
-                                <img src="../assets/lacada-580.png" alt="Puerta Lacada modelo 580 - Acabado blanco con tres paneles">
+                                <img src="../assets/lacada-580.png" srcset="../assets/lacada-580-2x.png 2x" data-src-high="../assets/lacada-580-2x.png" alt="Puerta Lacada modelo 580 - Acabado blanco con tres paneles">
                                 <span class="puerta-modelo-nombre">580</span>
                             </div>
                             <div class="puerta-modelo-imagen">
-                                <img src="../assets/lacada-670.png" alt="Puerta Lacada modelo 670 - Acabado blanco con dos paneles">
+                                <img src="../assets/lacada-670.png" srcset="../assets/lacada-670-2x.png 2x" data-src-high="../assets/lacada-670-2x.png" alt="Puerta Lacada modelo 670 - Acabado blanco con dos paneles">
                                 <span class="puerta-modelo-nombre">670</span>
                             </div>
                         </div>
@@ -356,7 +356,7 @@
             document.querySelectorAll('.puerta-modelo-imagen img').forEach(img => {
                 img.style.cursor = 'zoom-in';
                 img.addEventListener('click', () => {
-                    modalImg.src = img.src;
+                    modalImg.src = img.dataset.srcHigh || img.currentSrc || img.src;
                     modalImg.alt = img.alt;
                     modal.classList.add('activo');
                 });
