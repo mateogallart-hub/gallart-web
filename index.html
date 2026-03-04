@@ -355,31 +355,30 @@
                 <p class="section-subtitle">Más de 300m² dedicados a la madera y los materiales de construcción</p>
                 
                 <div class="galeria-destacada">
-                    <img src="assets/expo-fachada.png" alt="Fachada Exposición Gallart Oviedo">
+                    <img src="assets/expo-1.png" alt="Exposición Gallart - Vista de nuestras instalaciones">
                 </div>
                 
-                <div class="galeria-grid">
-                    <div class="galeria-item">
-                        <img src="assets/expo-puertas.png" alt="Exposición de puertas">
-                    </div>
-                    <div class="galeria-item">
-                        <img src="assets/expo-suelos.png" alt="Muestras de suelos">
-                    </div>
-                    <div class="galeria-item">
-                        <img src="assets/expo-muestras.png" alt="Muestrario de tarimas">
-                    </div>
-                    <div class="galeria-item">
-                        <img src="assets/expo-tableros.png" alt="Tableros con marca Gallart">
-                    </div>
-                    <div class="galeria-item">
-                        <img src="assets/expo-revestimientos.png" alt="Revestimientos de pared">
-                    </div>
-                    <div class="galeria-item">
-                        <img src="assets/expo-panoramica.png" alt="Vista panorámica de la exposición">
-                    </div>
-                    <div class="galeria-item">
-                        <img src="assets/gallart-cartel-lugones.png" alt="Cartel entrada Gallart Lugones con revestimiento GALLART-TEC">
-                    </div>
+                <div class="galeria-grid galeria-exposicion">
+                    <div class="galeria-item"><img src="assets/expo-2.png" alt="Exposición Gallart"></div>
+                    <div class="galeria-item"><img src="assets/expo-3.png" alt="Exposición Gallart"></div>
+                    <div class="galeria-item"><img src="assets/expo-4.png" alt="Exposición Gallart"></div>
+                    <div class="galeria-item"><img src="assets/expo-5.png" alt="Exposición Gallart"></div>
+                    <div class="galeria-item"><img src="assets/expo-6.png" alt="Exposición Gallart"></div>
+                    <div class="galeria-item"><img src="assets/expo-7.png" alt="Exposición Gallart"></div>
+                    <div class="galeria-item"><img src="assets/expo-8.png" alt="Exposición Gallart"></div>
+                    <div class="galeria-item"><img src="assets/expo-9.png" alt="Exposición Gallart"></div>
+                    <div class="galeria-item"><img src="assets/expo-10.png" alt="Exposición Gallart"></div>
+                    <div class="galeria-item"><img src="assets/expo-11.png" alt="Exposición Gallart"></div>
+                    <div class="galeria-item"><img src="assets/expo-12.png" alt="Exposición Gallart"></div>
+                    <div class="galeria-item"><img src="assets/expo-13.png" alt="Exposición Gallart"></div>
+                    <div class="galeria-item"><img src="assets/expo-14.png" alt="Exposición Gallart"></div>
+                    <div class="galeria-item"><img src="assets/expo-15.png" alt="Exposición Gallart"></div>
+                    <div class="galeria-item"><img src="assets/expo-16.png" alt="Exposición Gallart"></div>
+                    <div class="galeria-item"><img src="assets/expo-17.png" alt="Exposición Gallart"></div>
+                    <div class="galeria-item"><img src="assets/expo-18.png" alt="Exposición Gallart"></div>
+                    <div class="galeria-item"><img src="assets/expo-19.png" alt="Exposición Gallart"></div>
+                    <div class="galeria-item"><img src="assets/expo-20.png" alt="Exposición Gallart"></div>
+                    <div class="galeria-item"><img src="assets/expo-21.png" alt="Exposición Gallart"></div>
                 </div>
             </div>
         </section>
@@ -853,6 +852,32 @@
                 </a>
             `).join('');
         });
+    </script>
+
+    <!-- Modal imagen ampliada - Galería exposición -->
+    <div id="modal-galeria-expo" class="modal-ampliada">
+        <button class="modal-ampliada-cerrar">&times;</button>
+        <img id="modal-galeria-expo-img" class="modal-ampliada-img" src="" alt="">
+    </div>
+    <script>
+        (function() {
+            const modal = document.getElementById('modal-galeria-expo');
+            const modalImg = document.getElementById('modal-galeria-expo-img');
+            const modalCerrar = modal.querySelector('.modal-ampliada-cerrar');
+            document.querySelectorAll('#galeria .galeria-item img, #galeria .galeria-destacada img').forEach(img => {
+                img.style.cursor = 'zoom-in';
+                img.addEventListener('click', () => {
+                    modalImg.src = img.src;
+                    modalImg.alt = img.alt;
+                    modal.classList.add('activo');
+                });
+            });
+            modalCerrar.addEventListener('click', () => modal.classList.remove('activo'));
+            modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('activo'); });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('activo')) modal.classList.remove('activo');
+            });
+        })();
     </script>
 </body>
 </html>

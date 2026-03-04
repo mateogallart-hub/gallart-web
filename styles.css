@@ -1187,6 +1187,11 @@ a.producto-card-link {
     gap: 20px;
 }
 
+.galeria-grid.galeria-exposicion {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
 .galeria-item {
     border-radius: 8px;
     overflow: hidden;
@@ -1210,11 +1215,18 @@ a.producto-card-link {
     .galeria-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    .galeria-grid.galeria-exposicion {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 @media (max-width: 600px) {
     .galeria-grid {
         grid-template-columns: 1fr;
+    }
+    .galeria-grid.galeria-exposicion {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
     }
 }
 
