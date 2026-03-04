@@ -302,6 +302,34 @@
         </div>
     </div>
 
+    <!-- Modal imagen ampliada -->
+    <div id="modal-ampliada-puertas" class="modal-ampliada">
+        <button class="modal-ampliada-cerrar">&times;</button>
+        <img id="modal-ampliada-puertas-img" class="modal-ampliada-img" src="" alt="">
+    </div>
+
     <script src="../script.js"></script>
+    <script>
+        (function() {
+            const modal = document.getElementById('modal-ampliada-puertas');
+            const modalImg = document.getElementById('modal-ampliada-puertas-img');
+            const modalCerrar = modal.querySelector('.modal-ampliada-cerrar');
+
+            document.querySelectorAll('.puerta-modelo-imagen img').forEach(img => {
+                img.style.cursor = 'zoom-in';
+                img.addEventListener('click', () => {
+                    modalImg.src = img.src;
+                    modalImg.alt = img.alt;
+                    modal.classList.add('activo');
+                });
+            });
+
+            modalCerrar.addEventListener('click', () => modal.classList.remove('activo'));
+            modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('activo'); });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('activo')) modal.classList.remove('activo');
+            });
+        })();
+    </script>
 </body>
 </html>
