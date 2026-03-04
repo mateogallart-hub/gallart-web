@@ -2033,6 +2033,7 @@ a.producto-card-link {
     max-height: 95%;
     object-fit: contain;
     border-radius: 8px;
+    background: #ffffff;
 }
 
 @media (max-width: 768px) {
