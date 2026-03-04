@@ -1554,6 +1554,32 @@ a.producto-card-link {
     padding: 4px 0;
 }
 
+/* Puertas - especificaciones estructuradas */
+.puerta-especificaciones {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    margin-top: 20px;
+}
+
+.puerta-espec-block {
+    background: var(--color-bg);
+    padding: 16px 20px;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+}
+
+.puerta-espec-solo .puerta-espec-block {
+    max-width: 360px;
+}
+
+.puerta-catalogo-desc {
+    margin: 0 0 16px 0;
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+}
+
 /* Lisocore galería - imágenes uniformes */
 .lisocore-galeria {
     display: grid;
