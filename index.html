@@ -852,28 +852,62 @@
     </script>
 
     <!-- Modal imagen ampliada - Galería exposición -->
-    <div id="modal-galeria-expo" class="modal-ampliada">
+    <div id="modal-galeria-expo" class="modal-ampliada modal-galeria-slider">
         <button class="modal-ampliada-cerrar">&times;</button>
+        <button class="modal-galeria-prev" aria-label="Foto anterior">&lsaquo;</button>
+        <button class="modal-galeria-next" aria-label="Foto siguiente">&rsaquo;</button>
         <img id="modal-galeria-expo-img" class="modal-ampliada-img" src="" alt="">
+        <span class="modal-galeria-contador"></span>
     </div>
     <script>
         (function() {
             const modal = document.getElementById('modal-galeria-expo');
             const modalImg = document.getElementById('modal-galeria-expo-img');
             const modalCerrar = modal.querySelector('.modal-ampliada-cerrar');
-            document.querySelectorAll('#galeria .galeria-item img').forEach(img => {
+            const btnPrev = modal.querySelector('.modal-galeria-prev');
+            const btnNext = modal.querySelector('.modal-galeria-next');
+            const contador = modal.querySelector('.modal-galeria-contador');
+            const imagenes = Array.from(document.querySelectorAll('#galeria .galeria-item img')).map(img => ({ src: img.src, alt: img.alt }));
+            let indiceActual = 0;
+
+            function mostrarImagen(i) {
+                indiceActual = ((i % imagenes.length) + imagenes.length) % imagenes.length;
+                modalImg.src = imagenes[indiceActual].src;
+                modalImg.alt = imagenes[indiceActual].alt;
+                contador.textContent = (indiceActual + 1) + ' / ' + imagenes.length;
+            }
+
+            document.querySelectorAll('#galeria .galeria-item img').forEach((img, i) => {
                 img.style.cursor = 'zoom-in';
                 img.addEventListener('click', () => {
-                    modalImg.src = img.src;
-                    modalImg.alt = img.alt;
+                    indiceActual = i;
+                    mostrarImagen(i);
                     modal.classList.add('activo');
                 });
             });
+
+            btnPrev.addEventListener('click', (e) => { e.stopPropagation(); mostrarImagen(indiceActual - 1); });
+            btnNext.addEventListener('click', (e) => { e.stopPropagation(); mostrarImagen(indiceActual + 1); });
+
             modalCerrar.addEventListener('click', () => modal.classList.remove('activo'));
             modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('activo'); });
+            modalImg.addEventListener('click', (e) => e.stopPropagation());
+
             document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && modal.classList.contains('activo')) modal.classList.remove('activo');
+                if (!modal.classList.contains('activo')) return;
+                if (e.key === 'Escape') modal.classList.remove('activo');
+                else if (e.key === 'ArrowLeft') mostrarImagen(indiceActual - 1);
+                else if (e.key === 'ArrowRight') mostrarImagen(indiceActual + 1);
             });
+
+            let touchInicio = 0;
+            modal.addEventListener('touchstart', (e) => { touchInicio = e.touches[0].clientX; }, { passive: true });
+            modal.addEventListener('touchend', (e) => {
+                if (!modal.classList.contains('activo')) return;
+                const diff = e.changedTouches[0].clientX - touchInicio;
+                if (diff < -50) mostrarImagen(indiceActual + 1);
+                else if (diff > 50) mostrarImagen(indiceActual - 1);
+            }, { passive: true });
         })();
     </script>
 </body>

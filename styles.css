@@ -2055,6 +2055,65 @@ a.producto-card-link {
     background: #ffffff;
 }
 
+/* Modal galería - flechas deslizar */
+.modal-galeria-slider .modal-galeria-prev,
+.modal-galeria-slider .modal-galeria-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.6);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 2001;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.modal-galeria-slider .modal-galeria-prev:hover,
+.modal-galeria-slider .modal-galeria-next:hover {
+    background: rgba(0, 0, 0, 0.9);
+    color: var(--color-accent);
+}
+
+.modal-galeria-slider .modal-galeria-prev {
+    left: 20px;
+}
+
+.modal-galeria-slider .modal-galeria-next {
+    right: 20px;
+}
+
+.modal-galeria-slider .modal-galeria-contador {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    z-index: 2001;
+}
+
+@media (max-width: 600px) {
+    .modal-galeria-slider .modal-galeria-prev,
+    .modal-galeria-slider .modal-galeria-next {
+        width: 44px;
+        height: 44px;
+        font-size: 1.5rem;
+    }
+    .modal-galeria-slider .modal-galeria-prev { left: 10px; }
+    .modal-galeria-slider .modal-galeria-next { right: 10px; }
+}
+
 @media (max-width: 768px) {
     .modal-contenido {
         padding: 20px;
