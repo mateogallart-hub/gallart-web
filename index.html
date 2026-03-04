@@ -354,11 +354,8 @@
                 <h2 class="section-title">Nuestra Exposición</h2>
                 <p class="section-subtitle">Más de 300m² dedicados a la madera y los materiales de construcción</p>
                 
-                <div class="galeria-destacada">
-                    <img src="assets/expo-1.png" alt="Exposición Gallart - Vista de nuestras instalaciones">
-                </div>
-                
                 <div class="galeria-grid galeria-exposicion">
+                    <div class="galeria-item"><img src="assets/expo-1.png" alt="Exposición Gallart"></div>
                     <div class="galeria-item"><img src="assets/expo-2.png" alt="Exposición Gallart"></div>
                     <div class="galeria-item"><img src="assets/expo-3.png" alt="Exposición Gallart"></div>
                     <div class="galeria-item"><img src="assets/expo-4.png" alt="Exposición Gallart"></div>
@@ -864,7 +861,7 @@
             const modal = document.getElementById('modal-galeria-expo');
             const modalImg = document.getElementById('modal-galeria-expo-img');
             const modalCerrar = modal.querySelector('.modal-ampliada-cerrar');
-            document.querySelectorAll('#galeria .galeria-item img, #galeria .galeria-destacada img').forEach(img => {
+            document.querySelectorAll('#galeria .galeria-item img').forEach(img => {
                 img.style.cursor = 'zoom-in';
                 img.addEventListener('click', () => {
                     modalImg.src = img.src;
