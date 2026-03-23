@@ -1,0 +1,22 @@
+# Redirecciones para sitelinks de Google que apuntan a URLs incorrectas
+# Las secciones Contacto, Empresa, Marcas, Exposiciones están en la home con anclas (#)
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+# Contacto -> home#contacto
+RewriteRule ^contacto/?$ /#contacto [R=301,L,NE]
+
+# Empresa -> home#empresa
+RewriteRule ^empresa/?$ /#empresa [R=301,L,NE]
+
+# Marcas -> home#marcas
+RewriteRule ^marcas/?$ /#marcas [R=301,L,NE]
+
+# Exposiciones -> home#galeria (galería de exposiciones)
+RewriteRule ^exposiciones/?$ /#galeria [R=301,L,NE]
+
+# Productos (solo si /productos/ sin archivo da 404) -> home#productos
+RewriteRule ^productos/?$ /#productos [R=301,L,NE]
+</IfModule>

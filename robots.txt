@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gallartgrupo.com/sitemap.xml

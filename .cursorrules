@@ -1,5 +1,14 @@
 # Reglas del proyecto - Página web Gallart
 
+## Carpeta de subida (gallart-web-subir)
+
+**Siempre actualizar gallart-web-subir** cuando se modifiquen o añadan archivos:
+
+- Ruta: `/Users/mateogallart/Documents/gallart-web-subir`
+- Esa carpeta es la que se sube con FileZilla al servidor
+- Copiar/crear en gallart-web-subir cualquier archivo nuevo o modificado
+- No reemplazar todo el contenido; solo añadir los cambios
+
 ## Diseño móvil (Mobile-first)
 
 **Siempre tener en cuenta el formato móvil** en cualquier cambio de UI o CSS:

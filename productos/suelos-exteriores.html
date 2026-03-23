@@ -8,6 +8,14 @@
     <link rel="icon" type="image/png" href="../assets/favicon.png">
     <link rel="apple-touch-icon" href="../assets/favicon.png">
     <title>Suelos Exteriores Oviedo y Lugones | Tarimas GALLART-TEC | Gallart - Oviedo y Lugones</title>
+    <link rel="canonical" href="https://gallartgrupo.com/productos/suelos-exteriores.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gallartgrupo.com/productos/suelos-exteriores.html">
+    <meta property="og:title" content="Suelos Exteriores | Tarimas GALLART-TEC | Gallart Oviedo y Lugones">
+    <meta property="og:description" content="Tarimas para terrazas y piscinas. 25 años garantía, mantenimiento mínimo. Stock en Lugones.">
+    <meta property="og:image" content="https://gallartgrupo.com/assets/empresa-aerea-2.png">
+    <meta property="og:locale" content="es_ES">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="../styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,7 +56,7 @@
                 
                 <div class="producto-linea">
                     <h2>GALLART-TEC <span class="by-ntw">by NTW</span></h2>
-                    <p class="linea-intro">Nuestra línea propia de suelos de exterior. Tecnología UltraShield® con encapsulado 360° para máxima durabilidad. Sin aceites ni barnices: solo requiere lavado ocasional con manguera o agua a presión.</p>
+                    <p class="linea-intro">Diseñada para quienes buscan un suelo exterior duradero, elegante y de bajo mantenimiento, sin las complicaciones de la madera tradicional.</p>
                     
                     <div class="marca-datos">
                         <h3>Ventajas GALLART-TEC</h3>
@@ -75,7 +83,7 @@
                     <div class="modelos-section">
                         <h3>Tarimas Disponibles</h3>
                         
-                        <div class="coleccion-suelo con-imagen producto-clicable" data-producto="uh02" data-nombre="UH02 Tarima Plus" data-ref="GALLART-TEC" data-imagenes="../assets/uh02-proyecto-5.png,../assets/uh02-proyecto-6.png,../assets/uh02-proyecto-7.png,../assets/uh02-proyecto-8.png,../assets/uh02-proyecto-9.png,../assets/uh02-proyecto-10.png,../assets/uh02-proyecto-11.png,../assets/uh02-proyecto-12.png,../assets/uh02-proyecto-13.png,../assets/uh02-proyecto-14.png,../assets/uh02-proyecto-15.png,../assets/uh02-proyecto-16.png,../assets/uh02-proyecto-17.png,../assets/uh02-proyecto-18.png,../assets/gallart-tec-uh02-teak.png,../assets/uh02-proyecto-1.png,../assets/uh02-proyecto-2.png,../assets/uh02-proyecto-3.png,../assets/uh02-proyecto-4.png">
+                        <div class="coleccion-suelo con-imagen producto-clicable" data-producto="uh02" data-nombre="UH02 Tarima Plus" data-ref="GALLART-TEC" data-imagenes="../assets/uh02-proyecto-5.png,../assets/uh02-proyecto-6.png,../assets/uh02-proyecto-7.png,../assets/uh02-proyecto-8.png,../assets/uh02-proyecto-9.png,../assets/uh02-proyecto-10.png,../assets/uh02-proyecto-11.png,../assets/uh02-proyecto-12.png,../assets/uh02-proyecto-13.png,../assets/uh02-proyecto-14.png,../assets/uh02-proyecto-15.png,../assets/uh02-proyecto-16.png,../assets/uh02-proyecto-17.png,../assets/uh02-proyecto-18.png,../assets/uh02-proyecto-19.png,../assets/uh02-proyecto-20.png,../assets/uh02-proyecto-21.png,../assets/uh02-proyecto-22.png,../assets/uh02-proyecto-23.png,../assets/gallart-tec-uh02-teak.png,../assets/uh02-proyecto-1.png,../assets/uh02-proyecto-2.png,../assets/uh02-proyecto-3.png,../assets/uh02-proyecto-4.png,../assets/uh02-proyecto-24.png,../assets/uh02-proyecto-25.png,../assets/uh02-proyecto-26.png,../assets/uh02-proyecto-27.png,../assets/uh02-proyecto-28.png,../assets/uh02-proyecto-29.png,../assets/uh02-proyecto-30.png,../assets/uh02-proyecto-31.png,../assets/uh02-proyecto-32.png,../assets/uh02-proyecto-33.png,../assets/uh02-proyecto-34.png,../assets/uh02-proyecto-35.png,../assets/uh02-proyecto-36.png,../assets/uh02-proyecto-37.png,../assets/uh02-proyecto-38.png">
                             <div class="producto-imagen">
                                 <img src="../assets/gallart-tec-uh02-teak.png" alt="UH02 Tarima Plus GALLART-TEC">
                             </div>
@@ -207,7 +215,6 @@
             <div class="footer-content">
                 <div class="footer-logo">
                     <img src="../assets/logo-dark.svg" alt="Gallart - La Madera como Arte">
-                    <p>Empresa de la zona norte desde 1959</p>
                 </div>
                 <div class="footer-links">
                     <h4>Navegación</h4>
@@ -256,9 +263,12 @@
     </div>
 
     <!-- Modal imagen ampliada -->
-    <div id="modal-ampliada" class="modal-ampliada">
+    <div id="modal-ampliada" class="modal-ampliada modal-galeria-slider">
         <button class="modal-ampliada-cerrar">&times;</button>
+        <button class="modal-galeria-prev" aria-label="Foto anterior">&lsaquo;</button>
+        <button class="modal-galeria-next" aria-label="Foto siguiente">&rsaquo;</button>
         <img id="modal-ampliada-img" class="modal-ampliada-img" src="" alt="">
+        <span class="modal-galeria-contador"></span>
     </div>
 
     <!-- Banner de Cookies -->
@@ -284,6 +294,20 @@
         const modalAmpliadaImg = document.getElementById('modal-ampliada-img');
         const modalAmpliadaCerrar = modalAmpliada.querySelector('.modal-ampliada-cerrar');
 
+        let imagenesAmpliada = [];
+        let indiceAmpliada = 0;
+        const modalGaleriaContador = modalAmpliada.querySelector('.modal-galeria-contador');
+        const btnPrev = modalAmpliada.querySelector('.modal-galeria-prev');
+        const btnNext = modalAmpliada.querySelector('.modal-galeria-next');
+
+        function mostrarImagenAmpliada(i) {
+            if (imagenesAmpliada.length === 0) return;
+            indiceAmpliada = ((i % imagenesAmpliada.length) + imagenesAmpliada.length) % imagenesAmpliada.length;
+            modalAmpliadaImg.src = imagenesAmpliada[indiceAmpliada].trim();
+            modalAmpliadaImg.alt = modalProductoTitulo.textContent;
+            modalGaleriaContador.textContent = (indiceAmpliada + 1) + ' / ' + imagenesAmpliada.length;
+        }
+
         document.querySelectorAll('.producto-clicable').forEach(card => {
             card.addEventListener('click', (e) => {
                 if (e.target.classList.contains('color-tag')) return;
@@ -291,17 +315,18 @@
                 const ref = card.dataset.ref;
                 const imagenesStr = card.dataset.imagenes;
                 if (!imagenesStr) return;
-                const imagenes = imagenesStr.split(',');
+                imagenesAmpliada = imagenesStr.split(',');
                 modalProductoTitulo.textContent = nombre;
                 modalProductoRef.textContent = ref;
                 modalProductoImagenes.innerHTML = '';
-                imagenes.forEach(src => {
+                imagenesAmpliada.forEach((src, i) => {
                     const img = document.createElement('img');
                     img.src = src.trim();
                     img.alt = nombre;
-                    img.addEventListener('click', () => {
-                        modalAmpliadaImg.src = img.src;
-                        modalAmpliadaImg.alt = nombre;
+                    img.addEventListener('click', (ev) => {
+                        ev.stopPropagation();
+                        indiceAmpliada = i;
+                        mostrarImagenAmpliada(i);
                         modalAmpliada.classList.add('activo');
                     });
                     modalProductoImagenes.appendChild(img);
@@ -310,14 +335,21 @@
             });
         });
 
+        btnPrev.addEventListener('click', (e) => { e.stopPropagation(); mostrarImagenAmpliada(indiceAmpliada - 1); });
+        btnNext.addEventListener('click', (e) => { e.stopPropagation(); mostrarImagenAmpliada(indiceAmpliada + 1); });
+
         modalProductoCerrar.addEventListener('click', () => modalProducto.classList.remove('activo'));
         modalProducto.addEventListener('click', (e) => { if (e.target === modalProducto) modalProducto.classList.remove('activo'); });
         modalAmpliadaCerrar.addEventListener('click', () => modalAmpliada.classList.remove('activo'));
         modalAmpliada.addEventListener('click', (e) => { if (e.target === modalAmpliada) modalAmpliada.classList.remove('activo'); });
+        modalAmpliadaImg.addEventListener('click', (e) => e.stopPropagation());
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 if (modalAmpliada.classList.contains('activo')) modalAmpliada.classList.remove('activo');
                 else if (modalProducto.classList.contains('activo')) modalProducto.classList.remove('activo');
+            } else if (modalAmpliada.classList.contains('activo') && imagenesAmpliada.length > 1) {
+                if (e.key === 'ArrowLeft') mostrarImagenAmpliada(indiceAmpliada - 1);
+                else if (e.key === 'ArrowRight') mostrarImagenAmpliada(indiceAmpliada + 1);
             }
         });
 

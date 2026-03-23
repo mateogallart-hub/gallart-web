@@ -8,6 +8,14 @@
     <link rel="icon" type="image/png" href="../assets/favicon.png">
     <link rel="apple-touch-icon" href="../assets/favicon.png">
     <title>Encimeras Oviedo y Lugones | Superficies Arpa HPL | Gallart - Oviedo y Lugones</title>
+    <link rel="canonical" href="https://gallartgrupo.com/productos/superficies-encimeras.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gallartgrupo.com/productos/superficies-encimeras.html">
+    <meta property="og:title" content="Encimeras y Superficies Arpa HPL | Gallart Oviedo y Lugones">
+    <meta property="og:description" content="Tableros compactos para cocinas y baños. Distribuidor Arpa en Oviedo y Lugones.">
+    <meta property="og:image" content="https://gallartgrupo.com/assets/empresa-aerea-2.png">
+    <meta property="og:locale" content="es_ES">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="../styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -404,7 +412,6 @@
             <div class="footer-content">
                 <div class="footer-logo">
                     <img src="../assets/logo-dark.svg" alt="Gallart - La Madera como Arte">
-                    <p>Empresa de la zona norte desde 1959</p>
                 </div>
                 <div class="footer-links">
                     <h4>Navegación</h4>
@@ -464,9 +471,12 @@
     </div>
 
     <!-- Modal imagen ampliada -->
-    <div id="modal-ampliada-suelo" class="modal-ampliada">
+    <div id="modal-ampliada-suelo" class="modal-ampliada modal-galeria-slider">
         <button class="modal-ampliada-cerrar">&times;</button>
+        <button class="modal-galeria-prev" aria-label="Foto anterior">&lsaquo;</button>
+        <button class="modal-galeria-next" aria-label="Foto siguiente">&rsaquo;</button>
         <img id="modal-ampliada-suelo-img" class="modal-ampliada-img" src="" alt="">
+        <span class="modal-galeria-contador"></span>
     </div>
 
     <script src="../script.js"></script>
@@ -482,6 +492,19 @@
         const modalAmpliadaSuelo = document.getElementById('modal-ampliada-suelo');
         const modalAmpliadaSueloImg = document.getElementById('modal-ampliada-suelo-img');
         const modalAmpliadaSueloCerrar = modalAmpliadaSuelo.querySelector('.modal-ampliada-cerrar');
+        const modalGaleriaContador = modalAmpliadaSuelo.querySelector('.modal-galeria-contador');
+        const btnPrevSuelo = modalAmpliadaSuelo.querySelector('.modal-galeria-prev');
+        const btnNextSuelo = modalAmpliadaSuelo.querySelector('.modal-galeria-next');
+        let imagenesSueloAmpliada = [];
+        let indiceSueloAmpliada = 0;
+
+        function mostrarImagenSuelo(i) {
+            if (imagenesSueloAmpliada.length === 0) return;
+            indiceSueloAmpliada = ((i % imagenesSueloAmpliada.length) + imagenesSueloAmpliada.length) % imagenesSueloAmpliada.length;
+            modalAmpliadaSueloImg.src = imagenesSueloAmpliada[indiceSueloAmpliada].trim();
+            modalAmpliadaSueloImg.alt = modalSueloTitulo.textContent;
+            modalGaleriaContador.textContent = (indiceSueloAmpliada + 1) + ' / ' + imagenesSueloAmpliada.length;
+        }
 
         // Tarjetas de productos
         document.querySelectorAll('.suelo-card').forEach(card => {
@@ -492,19 +515,20 @@
                 
                 if (!imagenesStr) return;
                 
-                const imagenes = imagenesStr.split(',');
+                imagenesSueloAmpliada = imagenesStr.split(',');
                 
                 modalSueloTitulo.textContent = nombre;
                 modalSueloRef.textContent = 'Ref. ' + ref;
                 
                 modalSueloImagenes.innerHTML = '';
-                imagenes.forEach(src => {
+                imagenesSueloAmpliada.forEach((src, i) => {
                     const img = document.createElement('img');
                     img.src = src.trim();
                     img.alt = nombre;
-                    img.addEventListener('click', () => {
-                        modalAmpliadaSueloImg.src = img.src;
-                        modalAmpliadaSueloImg.alt = nombre;
+                    img.addEventListener('click', (ev) => {
+                        ev.stopPropagation();
+                        indiceSueloAmpliada = i;
+                        mostrarImagenSuelo(i);
                         modalAmpliadaSuelo.classList.add('activo');
                     });
                     modalSueloImagenes.appendChild(img);
@@ -513,6 +537,9 @@
                 modalSuelo.classList.add('activo');
             });
         });
+
+        btnPrevSuelo.addEventListener('click', (e) => { e.stopPropagation(); mostrarImagenSuelo(indiceSueloAmpliada - 1); });
+        btnNextSuelo.addEventListener('click', (e) => { e.stopPropagation(); mostrarImagenSuelo(indiceSueloAmpliada + 1); });
 
         // Cerrar modal galería
         modalSueloCerrar.addEventListener('click', () => {
@@ -533,8 +560,9 @@
                 modalAmpliadaSuelo.classList.remove('activo');
             }
         });
+        modalAmpliadaSueloImg.addEventListener('click', (e) => e.stopPropagation());
 
-        // Cerrar con tecla Escape
+        // Cerrar con tecla Escape y flechas
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 if (modalAmpliadaSuelo.classList.contains('activo')) {
@@ -542,6 +570,9 @@
                 } else if (modalSuelo.classList.contains('activo')) {
                     modalSuelo.classList.remove('activo');
                 }
+            } else if (modalAmpliadaSuelo.classList.contains('activo') && imagenesSueloAmpliada.length > 1) {
+                if (e.key === 'ArrowLeft') mostrarImagenSuelo(indiceSueloAmpliada - 1);
+                else if (e.key === 'ArrowRight') mostrarImagenSuelo(indiceSueloAmpliada + 1);
             }
         });
 

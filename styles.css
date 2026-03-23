@@ -22,15 +22,19 @@
 
 html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+    overscroll-behavior-y: contain;
 }
 
 body {
-    overflow-x: hidden;
     font-family: var(--font-body);
     background-color: var(--color-bg);
     color: var(--color-text);
     line-height: 1.6;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+    touch-action: pan-y;
 }
 
 a {
@@ -99,6 +103,8 @@ img {
     border: none;
     cursor: pointer;
     padding: 12px;
+    min-width: 44px;
+    min-height: 44px;
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -408,6 +414,22 @@ a.producto-card-link {
     line-height: 1.7;
 }
 
+.producto-card-vermas {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    letter-spacing: 0.02em;
+}
+.producto-card-vermas::after {
+    content: " →";
+    opacity: 0.8;
+}
+.producto-card:hover .producto-card-vermas {
+    text-decoration: underline;
+}
+
 /* Tableros - Tabs con animación de apertura */
 .tablero-tab {
     position: relative;
@@ -469,40 +491,25 @@ a.producto-card-link {
 }
 
 .tableros-secciones {
-    display: grid;
     margin-top: 40px;
-    position: relative;
 }
 
 .tableros-seccion {
-    grid-area: 1 / 1;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    transition: none;
+    display: none;
+    scroll-margin-top: 100px; /* Título visible bajo header fijo */
 }
 
 .tableros-seccion.activa {
-    position: relative;
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    z-index: 1;
-    animation: tableroAbrir 0.45s ease-out forwards;
+    display: block;
+    animation: tableroAbrir 0.3s ease-out;
 }
 
 @keyframes tableroAbrir {
     from {
         opacity: 0;
-        transform: translateY(16px);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
     }
 }
 
@@ -518,7 +525,7 @@ a.producto-card-link {
 }
 .melamina-marca-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 24px;
 }
 .melamina-marca-card {
@@ -565,6 +572,8 @@ a.producto-card-link {
     font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 16px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 .melamina-marca-cta {
     font-size: 0.9rem;
@@ -578,11 +587,38 @@ a.producto-card-link {
     display: block;
 }
 
+.melamina-marca-content,
+.especiales-tipo-content {
+    scroll-margin-top: 100px;
+}
+
 .especiales-tipo-content {
     display: none;
 }
 .especiales-tipo-content.activo {
     display: block;
+}
+
+/* Tableros Especiales: 1 columna siempre para que se vean las 4 tarjetas completas */
+.especiales-tipo-selector {
+    overflow-x: hidden;
+    width: 100%;
+}
+.especiales-tipo-grid {
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 100%;
+}
+@media (max-width: 480px) {
+    .especiales-tipo-grid .melamina-marca-card {
+        min-width: 0;
+        max-width: 100%;
+    }
+}
+@media (max-width: 360px) {
+    .especiales-tipo-grid .melamina-marca-card {
+        padding: 20px 16px;
+    }
 }
 @media (max-width: 768px) {
     .melamina-marca-grid {
@@ -697,6 +733,14 @@ a.producto-card-link {
 .despieces-aviso p {
     margin: 0 0 20px 0;
     font-size: 1.1rem;
+}
+.despieces-contacto-nota {
+    margin-bottom: 20px !important;
+    padding: 12px 16px;
+    background: rgba(180, 140, 90, 0.12);
+    border-left: 3px solid var(--color-accent);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.95rem;
     line-height: 1.6;
     color: var(--color-text);
 }
@@ -1220,13 +1264,19 @@ a.producto-card-link {
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    .galeria-grid.galeria-exposicion {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+}
+
+@media (max-width: 480px) {
     .galeria-grid {
         grid-template-columns: 1fr;
     }
     .galeria-grid.galeria-exposicion {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
+        grid-template-columns: 1fr;
     }
 }
 
@@ -1321,6 +1371,18 @@ a.producto-card-link {
     background: var(--color-bg-secondary);
     border-radius: 8px;
     border: 1px solid var(--color-border);
+}
+
+@media (max-width: 768px) {
+    .marca-cta {
+        padding: 30px 70px 90px 24px; /* Espacio derecho e inferior para botón WhatsApp flotante */
+    }
+}
+
+@media (max-width: 480px) {
+    .marca-cta {
+        padding: 24px 70px 90px 20px;
+    }
 }
 
 .marca-cta p {
@@ -1783,7 +1845,7 @@ a.producto-card-link {
     text-align: right;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .modelo-row {
         grid-template-columns: 1fr;
         gap: 4px;
@@ -1838,6 +1900,12 @@ a.producto-card-link {
     transition: transform var(--transition);
 }
 
+/* Productos claros sobre fondo oscuro para mejor contraste (KB17, KB01, KB46) */
+.modelo-fondo-oscuro .modelo-galeria-img,
+.modelo-fondo-oscuro .modelo-galeria-img img {
+    background: var(--color-bg-tertiary);
+}
+
 .modelo-galeria-card:hover .modelo-galeria-img img {
     transform: scale(1.03);
 }
@@ -1884,6 +1952,108 @@ a.producto-card-link {
 .modelo-galeria-info .modelo-nombre {
     color: var(--color-text);
     font-size: 0.95rem;
+}
+
+/* Botón Ver proyectos - Madera ranurada */
+.btn-ver-proyectos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 360px;
+    margin: 28px 0 32px;
+    padding: 24px 28px;
+    background: rgba(180, 140, 90, 0.15);
+    border: 2px solid var(--color-accent);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all var(--transition);
+    font-family: inherit;
+    text-align: center;
+}
+.btn-ver-proyectos:hover {
+    background: rgba(180, 140, 90, 0.25);
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(180, 140, 90, 0.2);
+}
+.btn-ver-proyectos:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
+}
+.btn-ver-proyectos-icon {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+.btn-ver-proyectos-texto {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-accent);
+}
+.btn-ver-proyectos-sub {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    margin-top: 6px;
+    line-height: 1.4;
+}
+.galeria-proyectos-oculta {
+    display: none;
+}
+.galeria-proyectos-oculta.visible,
+#galeria-madera-ranurada.visible {
+    display: block;
+}
+
+/* Galería proyectos madera ranurada - responsive */
+@media (max-width: 768px) {
+    .madera-ranurada-proyectos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .madera-ranurada-proyectos {
+        gap: 12px;
+    }
+
+    .madera-ranurada-proyectos .modelo-galeria-info {
+        padding: 12px;
+    }
+
+    .madera-ranurada-proyectos .modelo-galeria-info .modelo-nombre {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .madera-ranurada-proyectos {
+        gap: 10px;
+    }
+
+    .madera-ranurada-proyectos .modelo-galeria-info {
+        padding: 10px;
+    }
+
+    .madera-ranurada-proyectos .modelo-galeria-info .modelo-nombre {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn-ver-proyectos {
+        max-width: 100%;
+        padding: 20px 20px;
+        margin: 20px 0 24px;
+    }
+    .btn-ver-proyectos-texto {
+        font-size: 1.1rem;
+    }
+    .btn-ver-proyectos-sub {
+        font-size: 0.85rem;
+    }
 }
 
 /* Modal Lightbox */
@@ -2147,6 +2317,12 @@ a.producto-card-link {
 
 .marca-datos {
     margin-bottom: 60px;
+    max-width: 100%;
+}
+
+.marca-datos p {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .marca-datos h2 {
@@ -2159,6 +2335,17 @@ a.producto-card-link {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 24px;
+}
+
+@media (max-width: 480px) {
+    .datos-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .dato-card {
+        padding: 24px 20px;
+    }
 }
 
 .dato-card {
@@ -2330,6 +2517,17 @@ a.producto-card-link {
 }
 
 @media (max-width: 768px) {
+    html {
+        scroll-behavior: auto; /* smooth puede causar lag en móvil */
+    }
+    .tableros-seccion {
+        scroll-margin-top: 120px; /* Más espacio en tablet/móvil */
+    }
+    .melamina-marca-content,
+    .especiales-tipo-content {
+        scroll-margin-top: 120px;
+    }
+    
     .nav-toggle {
         display: flex;
     }
@@ -2362,6 +2560,7 @@ a.producto-card-link {
     .nav-menu a {
         display: block;
         padding: 16px 0;
+        color: var(--color-text);
     }
     
     .exposiciones-grid {
@@ -2386,6 +2585,14 @@ a.producto-card-link {
 }
 
 @media (max-width: 480px) {
+    .tableros-seccion {
+        scroll-margin-top: 130px; /* Header + menú en móvil */
+    }
+    .melamina-marca-content,
+    .especiales-tipo-content {
+        scroll-margin-top: 130px;
+    }
+    
     .container {
         padding: 0 16px;
     }
@@ -2457,6 +2664,16 @@ a.producto-card-link {
     
     .marca-hero {
         padding: 120px 0 40px;
+    }
+}
+
+@media (max-width: 360px) {
+    .tableros-seccion {
+        scroll-margin-top: 140px; /* Móvil pequeño: más margen seguro */
+    }
+    .melamina-marca-content,
+    .especiales-tipo-content {
+        scroll-margin-top: 140px;
     }
 }
 
@@ -2767,6 +2984,8 @@ a.producto-card-link {
     align-items: center;
     gap: 8px;
     transition: all var(--transition);
+    min-height: 44px;
+    min-width: 44px;
 }
 
 .btn-buscar:hover {
@@ -3555,6 +3774,71 @@ a.producto-card-link {
     border-color: var(--color-accent);
 }
 
+/* Parador - esquema de composición */
+.parador-composicion-section h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+    color: var(--color-accent);
+}
+
+.parador-composicion-esquema {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.parador-capa {
+    display: grid;
+    grid-template-columns: 36px 1fr auto;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-bg-secondary);
+}
+
+.parador-capa:last-child {
+    border-bottom: none;
+}
+
+.parador-capa-num {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-accent);
+    color: var(--color-bg);
+    border-radius: 50%;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.parador-capa-nombre {
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.parador-capa-desc {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}
+
+@media (max-width: 480px) {
+    .parador-capa {
+        grid-template-columns: 28px 1fr;
+        gap: 8px;
+    }
+    .parador-capa-desc {
+        grid-column: 2;
+        font-size: 0.85rem;
+    }
+}
+
 /* Calculadora de paneles */
 .calculadora-section {
     margin-top: 50px;
@@ -4073,15 +4357,24 @@ a.producto-card-link {
     font-size: 0.9rem;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .cookie-banner .container {
         flex-direction: column;
         text-align: center;
     }
     
+    .cookie-banner p {
+        min-width: 0;
+    }
+    
     .cookie-buttons {
         width: 100%;
         justify-content: center;
+    }
+    
+    .cookie-buttons .btn {
+        min-height: 44px;
+        padding: 12px 28px;
     }
 }
 
@@ -4090,7 +4383,8 @@ a.producto-card-link {
    ======================================== */
 
 .tabla-responsive {
-    overflow-x: auto;
+    width: 100%;
+    overflow-x: visible;
 }
 
 .tabla-vigas {
